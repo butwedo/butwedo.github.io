@@ -178,8 +178,13 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
-        background-image: url(/img/bg_img1.jpg);
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
       }
     </style>
 
@@ -402,7 +407,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        mailto: sounkix@outlook.com
+        email me
         <b class="caret"></b>
     </a>
 </div>
@@ -415,7 +420,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="sounkix@outlook.com" target="_blank" title="Email Me">
+                    <a href="mailto:sounkix@outlook.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -469,7 +474,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/新世界/">新世界<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/categories/OJ题目/">OJ题目<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/新世界/">新世界<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -733,10 +738,6 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
 
-    
-        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?5+2z7ZZmFuZK5IcimlZbxw==", true)</script>
-    
-
 
 <!-- Window Load -->
 <!-- add class for prettify -->
@@ -748,16 +749,18 @@ It will not impact the appearance and can give developers a lot of support :)
 
     
     
-        
-        
-        HanabiBrowser.start('pre code',true);
-    
 </script>
 
 <!-- MathJax Load-->
 
 
 <!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?A');
+    });
+</script>
 
 
 <script type="text/ls-javascript" id="lazy-load">
