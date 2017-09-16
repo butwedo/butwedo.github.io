@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[一个有点意思的证明]]></title>
+      <url>/2017/09/15/%E4%B8%80%E4%B8%AA%E6%8C%BA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%81%E6%98%8E/</url>
+      <content type="html"><![CDATA[<p>昨天二师兄突然来这边机房，然后又突然就没头没脑的提出了这个问题：</p>
+<blockquote>
+<p>将一个完全图的所有边任意指定方向（所谓竞赛图），如何证明这张图一定存在一条哈密顿路径？</p>
+</blockquote>
+<p>经过一番思考和操作，我们大致把它给搞出来了，现记录如下。</p>
+<p>首先证明，一个竞赛图最多存在一个入度为0的点：<br>若存在两个以上的点入度为零，那么它们之间的边无法指明方向，证毕。</p>
+<p>然后我们要明确一点，即一个完全图删掉一个点及其所有连边之后还是一个完全图。那么我们一直删掉那个入度为零的点进行拓扑排序，递归证明可得每次删掉一个点之后最多还是只会有一个点入度为零，且这个点一定是上一个被删点的儿子节点（姑且这么叫）。一直删点直到没有点为止，我们一定能够求出一条哈密顿路。</p>
+<p>那么如果途中不存在入度为零的点怎么办呢？</p>
+<p>我们可以随意指定一个点，并且把指向它的边都删掉，这样就有了一个入度为零的点了（手动滑稽）。由于我们删掉的都是它的入边，因此不会把其他的点变为入度为零的点。<br>然后继续递归求解。证毕。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 线下OI </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 证明 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[又是一道坑题HDU4405]]></title>
+      <url>/2017/09/15/HDU4405/</url>
+      <content type="html"><![CDATA[<p>最近打算刷几道概率DP，然而就这么状况频出。。。</p>
+<p>丢个链接：</p>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4405" target="_blank" rel="external">HDU4405</a></p>
+<p>这道题的大意是说Hzz玩儿飞行棋，起点是0，终点是n，并且路径上还有m条航线(x,y)可以不用掷骰子直接从x到y。问掷骰子次数的期望。</p>
+<p>明明是一道裸题，结果又WA了好几遍。看讨论才发现若x点存在航线的话直接飞，不考虑掷骰子的事儿。然而原文中说的是</p>
+<blockquote>
+<p>The i-th flight line can help Hzz fly from grid Xi to Yi (0&lt;Xi&lt;Yi&lt;=N) without throwing the dice.</p>
+</blockquote>
+<p>我也不知道这个“help”咋就成强制的了，因为可能会存在这种情况：</p>
+<pre><code>12 7
+1 8
+2 12
+3 12
+4 12
+5 12
+6 12
+7 12
+0 0
+</code></pre><p>这样的数据，当第一次掷出1时很明显不选走航线是更优的。。。不是很明白飞行棋的规矩，但是按照题目里的说明应该是可以选择飞不飞吧。。。然而这么打就错了，强制飞就对了。。。辣鸡HDU。。。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int n,m;
+double f[100005];
+int to[100005];
+int main()
+{
+    while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF&amp;&amp;n)
+    {
+        memset(f,0,sizeof(f));
+        memset(to,0,sizeof(to));
+        for(int i=1;i&lt;=m;i++)
+        {
+            int a,b;
+            scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+            to[a]=b;
+        }
+        for(int i=n-1;i&gt;=0;i--)
+        {
+            for(int j=1;j&lt;=6;j++)
+            {
+                f[i]+=f[i+j];
+                if(i+j==n)break; 
+            }
+            f[i]=f[i]/6.0+1;
+            if(to[i])f[i]=min(f[i],f[to[i]]);
+        }
+        printf(&quot;%.4lf\n&quot;,f[0]);
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DP </tag>
+            
+            <tag> 期望DP </tag>
+            
+            <tag> HDU </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[HDU3853 LOOPS]]></title>
+      <url>/2017/09/14/LOOPS/</url>
+      <content type="html"><![CDATA[<p>先丢个<a href="http://acm.hdu.edu.cn/showproblem.php?pid=3853" target="_blank" rel="external">题目链接</a>。<br>题目大意是此主人公（马猴烧酒，话说前几天才和yzyun大佬谈论过这个梗= =）处在一个r*c的矩阵的左上角，她需要去到右下角，在每个点上，她有grid(r,c)的概率留在原地，有grid(r,c+1)的概率向右走，有grid(r+1,c)的1概率向下走，每次走动都需要花费2点能量值。求到终点的期望能量值花费。</p>
+<p>一道很裸的期望DP，倒推期望，设f[i][j]为从点(i,j)到终点的期望，可推得，当s[i][j]不为1时，<code>f[i][j]=(f[i+1][j]*d[i][j]+f[i][j+1]*rm[i][j]+2)/(1-s[i][j])</code>，否则f[i][j]直接为0。一些变量的意义请直接见代码。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+double d[1003][1003],rm[1003][1003];//d代表向下的概率，rm代表向右的概率
+double s[1003][1003],f[1003][1003];//s代表留在原地的概率，f代表期望花费
+int main()
+{
+    int r,c;
+    while(scanf(&quot;%d%d&quot;,&amp;r,&amp;c)!=EOF)
+    {
+        memset(f,0,sizeof(f));
+        for(int i=1;i&lt;=r;i++)
+        {
+            for(int j=1;j&lt;=c;j++)
+            {
+                scanf(&quot;%lf%lf%lf&quot;,&amp;s[i][j],&amp;rm[i][j],&amp;d[i][j]);
+            }
+        }
+        for(int i=r;i&gt;=1;i--)
+        {
+            for(int j=c;j&gt;=1;j--)
+            {
+                if(i==r&amp;&amp;j==c)continue;
+                if(s[i][j]==1)continue;
+                f[i][j]=(f[i+1][j]*d[i][j]+f[i][j+1]*rm[i][j]+2)/(1-s[i][j]);
+            }
+        }
+        printf(&quot;%.3lf\n&quot;,f[1][1]);
+    }
+    return 0;
+}
+</code></pre>
+<p>按理说这道题挺简单的，然而却有几个不大不小的槽点。这道题我第一遍交的时候按照每个点一组数据，数组开的float，结果WA了，第二遍开的double，按每个点多数据打的，然后就A了。。。不知道是精度问题还是hdu又一次不带提醒的用的多数据。。。。还有一个槽点的是答案保证不超过1000000，然而若中间的某点只能在原地走的话，期望就是INF，而我们把这样的点的期望赋值成了0，就相当于把这个点当成了又一个终点，可能会导致答案错误，不清楚数据是不是特意避开了这样的情况，还是标程就是错的没有考虑这种情况，反正我A了~如果有哪位dalao知道赋值为INF的正确做法的话，欢迎指出发到我邮箱里sounkix@outlook.com，非常感谢！</p>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DP </tag>
+            
+            <tag> 期望DP </tag>
+            
+            <tag> HDU </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello, world.]]></title>
+      <url>/2017/09/13/Hello/</url>
+      <content type="html"><![CDATA[<p>所以，从前天就一直开始搞的这个博客，到今天终于是差不多整好了。真是长舒了一口气。虽然之间发生了很多鬼事，不过谢天谢地到最后所有事都在掌控之中。</p>
+<h3 id="非常感谢的一些人："><a href="#非常感谢的一些人：" class="headerlink" title="非常感谢的一些人："></a>非常感谢的一些人：</h3><ul>
+<li><a href="http://yzyun.pw" target="_blank" rel="external">yzyun</a> dalao,是比我先整blog的人，也是因为他的影响我才开始有了开博客的念头，在搭建博客的过程中包括关于Hexo模板的种种问题以及域名的购置及解析都帮了我非常非常大的忙。</li>
+<li><a href="http://ytoworld.tk" target="_blank" rel="external">yto</a>  貌似是最先有博客的dalao，对一些系统和github的知识非常熟悉并且帮助人时非常亲切<del>大概是因为他是双性恋的原因吧</del></li>
+<li>同机房的czd帮我用支付宝付了域名的费用，非常感谢并再一次使我认识到了财政独立的重要性。</li>
+<li>HYS dalao，不折不扣的真正巨神，在出题的百忙之余帮没带手机的我用自己的手机完成了一些账号的短信验证。非常感谢他的帮忙并日常膜拜</li>
+<li><a href="http://go.kieran.top" target="_blank" rel="external">kieran</a> 并不认识这位大佬，但博客第一个主题是用的这位大牛的<a href="https://github.com/SuperKieran/TKL" target="_blank" rel="external">TKL</a>,并且背景的两只小猫也是TKL原来的背景。虽然因为dalao的使用文档是全英的，蒟蒻根本看不懂，但是页面非常漂亮！如果有哪位也有意想要搭个类似的博客的话，可以考虑一下这位大佬的主题！</li>
+<li><a href="https://material.viosey.com/" target="_blank" rel="external">Viosey</a> 这位大佬设计了我现在使用的主题，各方面都非常棒！并且提供了详细的中文说明文档，非常照顾我这种小白！强烈安利！<br>还有这个博客的一些图片，以及搭建过程中一些小问题的解决，都是各位网友前辈留下来的，在这里也要说声谢谢。</li>
+</ul>
+<hr>
+<p>然后，按照惯例:</p>
+<p><em>Hello, world.</em></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout&lt;&lt;&quot;Hello, world.&quot;;
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p><em>They say no one cares, no one sees, no one can get though</em></p>
+<p><em>However, as I know I’m not the only one,I say:</em></p>
+<p><em>“Well,but we do.</em></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 新世界 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 新世界 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
