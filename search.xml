@@ -3,6 +3,131 @@
   
     
     <entry>
+      <title><![CDATA[poj3648]]></title>
+      <url>/2017/09/19/poj3648/</url>
+      <content type="html"><![CDATA[<p>一天之内完成两道2-sat，新方法就是霸气~</p>
+<p>这道题的题目大意是一对新人要举行婚礼，邀请了n对夫妇在宴席上有这么些奇奇怪怪的风俗：一对夫妇不能做同一侧否则会有厄运；除此之外还有一些有暧昧关系的人，这些人不能同时被新娘看到，否则也会有厄运。问是否有解，若有的话输出任意一组。</p>
+<p>这是<a href="http://poj.org/problem?id=3648" target="_blank" rel="external">题目链接</a>。</p>
+<p>以坐在新郎一侧的人是谁为对应点建图，记录新郎一侧的解，输出的时候反过来。不直接记录新娘一侧的点是因为据discuss说新娘也可能有暧昧关系。。。。。。然后还有一点就是要连一条新娘到新郎的边，表示新郎一定要选（因为是求新郎一侧的解）。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stack&gt; 
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int tot;
+int had[200],nxt[40004],point[40004];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+int t,timel;
+int dfn[200],low[200],blng[200];
+bool vis[200];
+stack&lt;int&gt;ss;
+void tarjan(int x)
+{
+    dfn[x]=low[x]=t++;
+    ss.push(x);
+    vis[x]=1;
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else
+        if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(dfn[x]==low[x])
+    {
+        timel++;
+        while(!ss.empty())
+        {
+            int y=ss.top();
+            blng[y]=timel;
+            vis[y]=0;
+            ss.pop();
+            if(y==x)break;
+        }
+    }
+}
+int n,m;
+int main()
+{
+    while(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n)
+    {    
+        tot=0;
+        t=0;
+        timel=0;
+        bool f=0;
+        memset(dfn,0,sizeof(dfn));
+        memset(low,0,sizeof(low));
+        memset(had,0,sizeof(had));
+        memset(nxt,0,sizeof(nxt));
+        memset(blng,0,sizeof(blng));    
+        memset(point,0,sizeof(point));
+        for(int i=0;i&lt;m;i++)
+        {
+            int w,h;
+            char w1,h1;
+            cin&gt;&gt;w&gt;&gt;w1;
+            cin&gt;&gt;h&gt;&gt;h1;
+            w&lt;&lt;=1;
+            h&lt;&lt;=1;
+            if(w1==&#39;h&#39;)w++;
+            if(h1==&#39;h&#39;)h++;
+            add(w,h^1);
+            add(h,w^1);
+        }
+        add(0,1); 
+        for(int i=0;i&lt;2*n;i++)
+            if(!dfn[i])tarjan(i);
+        for(int i=0;i&lt;2*n;i+=2)
+            if(blng[i]==blng[i+1])
+            {
+                f=1;
+                cout&lt;&lt;&quot;bad luck\n&quot;;
+                break;
+            }
+        if(f)continue;
+        for(int i=2;i&lt;2*n;i+=2)
+        {
+            cout&lt;&lt;(i&gt;&gt;1);
+            if(blng[i]&lt;blng[i+1])cout&lt;&lt;&quot;h &quot;;
+            else cout&lt;&lt;&quot;w &quot;;
+        }
+        cout&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-SAT </tag>
+            
+            <tag> poj </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[poj3683(2-SAT输出方案第一题)]]></title>
       <url>/2017/09/19/poj3583/</url>
       <content type="html"><![CDATA[<p>昨天做这道题的时候各种错误，今天早上终于调好了。原来也刷过几道2-sat的题，不过输出方案的这是第一道。本来2-sat输出方案的传统做法是先缩点，再建反图拓扑排个序，然后再染色，将红色点输出，然而昨天查资料的时候发现，其实在tarjan求强连通的时候，每个强联通分量的求出顺序就是原图的逆拓扑序！所以我们根本就不用再拓扑排序。接着，根据对称性，若原题有解的话，根据2-sat的对称性，我们只需在两个对应点之间找所属强连通分量时间戳更小的就行了，这样得出的就一定是一组可行解。</p>
@@ -342,26 +467,26 @@ int main()
   
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     

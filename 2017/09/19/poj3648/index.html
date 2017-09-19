@@ -39,7 +39,7 @@
     
     <title>
         
-            poj3683(2-SAT输出方案第一题) | 
+            poj3648 | 
         
         Hey, there
     </title>
@@ -233,18 +233,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://butwedo.space">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="poj3683(2-SAT输出方案第一题) | Hey, there">
+    <meta property="og:title" content="poj3648 | Hey, there">
     <meta property="og:image" content="http://butwedo.space/img/fav.png" />
     <meta property="og:description" content="If we all lie in the dark">
     <meta property="og:article:tag" content="图论"> <meta property="og:article:tag" content="2-SAT"> <meta property="og:article:tag" content="poj"> 
 
     
-        <meta property="article:published_time" content="Tue Sep 19 2017 07:49:39 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Sep 19 2017 07:50:12 GMT+0800" />
+        <meta property="article:published_time" content="Tue Sep 19 2017 16:47:39 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Sep 19 2017 16:48:12 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="poj3683(2-SAT输出方案第一题) | Hey, there">
+    <meta name="twitter:title" content="poj3648 | Hey, there">
     <meta name="twitter:description" content="If we all lie in the dark">
     <meta name="twitter:image" content="http://butwedo.space/img/fav.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -252,7 +252,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://butwedo.space/2017/09/19/poj3583/index.html" />
+        <link rel="canonical" href="http://butwedo.space/2017/09/19/poj3648/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -264,10 +264,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://butwedo.space/2017/09/19/poj3583/index.html",
-    "headline": "poj3683(2-SAT输出方案第一题)",
-    "datePublished": "Tue Sep 19 2017 07:49:39 GMT+0800",
-    "dateModified": "Tue Sep 19 2017 07:50:12 GMT+0800",
+    "mainEntityOfPage": "http://butwedo.space/2017/09/19/poj3648/index.html",
+    "headline": "poj3648",
+    "datePublished": "Tue Sep 19 2017 16:47:39 GMT+0800",
+    "dateModified": "Tue Sep 19 2017 16:48:12 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sounix",
@@ -374,7 +374,7 @@
         
     
             <p class="article-headline-p">
-                poj3683(2-SAT输出方案第一题)
+                poj3648
             </p>
         </div>
 
@@ -444,7 +444,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=poj3683(2-SAT输出方案第一题)&url=http://butwedo.space/2017/09/19/poj3583/index.html&pic=http://butwedo.space/img/fav.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=poj3648&url=http://butwedo.space/2017/09/19/poj3648/index.html&pic=http://butwedo.space/img/fav.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -453,7 +453,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=poj3683(2-SAT输出方案第一题)&url=http://butwedo.space/2017/09/19/poj3583/index.html&via=Sounix" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=poj3648&url=http://butwedo.space/2017/09/19/poj3648/index.html&via=Sounix" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -462,7 +462,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://butwedo.space/2017/09/19/poj3583/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://butwedo.space/2017/09/19/poj3648/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -471,7 +471,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://butwedo.space/2017/09/19/poj3583/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://butwedo.space/2017/09/19/poj3648/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -495,18 +495,17 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>昨天做这道题的时候各种错误，今天早上终于调好了。原来也刷过几道2-sat的题，不过输出方案的这是第一道。本来2-sat输出方案的传统做法是先缩点，再建反图拓扑排个序，然后再染色，将红色点输出，然而昨天查资料的时候发现，其实在tarjan求强连通的时候，每个强联通分量的求出顺序就是原图的逆拓扑序！所以我们根本就不用再拓扑排序。接着，根据对称性，若原题有解的话，根据2-sat的对称性，我们只需在两个对应点之间找所属强连通分量时间戳更小的就行了，这样得出的就一定是一组可行解。</p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">题目链接</a>。</p>
+        <p>一天之内完成两道2-sat，新方法就是霸气~</p>
+<p>这道题的题目大意是一对新人要举行婚礼，邀请了n对夫妇在宴席上有这么些奇奇怪怪的风俗：一对夫妇不能做同一侧否则会有厄运；除此之外还有一些有暧昧关系的人，这些人不能同时被新娘看到，否则也会有厄运。问是否有解，若有的话输出任意一组。</p>
+<p>这是<a href="http://poj.org/problem?id=3648" target="_blank" rel="external">题目链接</a>。</p>
+<p>以坐在新郎一侧的人是谁为对应点建图，记录新郎一侧的解，输出的时候反过来。不直接记录新娘一侧的点是因为据discuss说新娘也可能有暧昧关系。。。。。。然后还有一点就是要连一条新娘到新郎的边，表示新郎一定要选（因为是求新郎一侧的解）。</p>
 <pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stack&gt; 
 #include&lt;cstdio&gt;
-#include&lt;stack&gt;
+#include&lt;cstring&gt;
 using namespace std;
-int n;
-int tot,had[3000],nxt[5000000],point[5000000];
-struct wed{
-    int bg;
-    int nd;
-}p[2003];
+int tot;
+int had[200],nxt[40004],point[40004];
 inline void add(int x,int y)
 {
     tot++;
@@ -514,18 +513,15 @@ inline void add(int x,int y)
     nxt[tot]=had[x];
     had[x]=tot;
 }
-bool vis[3000];
-int t;
-int timel;
-int dfn[3000],low[3000];
-int blng[3000];//强连通分量时间戳 
+int t,timel;
+int dfn[200],low[200],blng[200];
+bool vis[200];
 stack&lt;int&gt;ss;
-int ans[2009];
 void tarjan(int x)
 {
-    dfn[x]=low[x]=++t;
-    vis[x]=t;
+    dfn[x]=low[x]=t++;
     ss.push(x);
+    vis[x]=1;
     for(int i=had[x];i;i=nxt[i])
     {
         int to=point[i];
@@ -534,66 +530,72 @@ void tarjan(int x)
             tarjan(to);
             low[x]=min(low[x],low[to]);
         }
-        else if(vis[to]) low[x]=min(low[x],dfn[to]);
+        else
+        if(vis[to])low[x]=min(low[x],dfn[to]);
     }
-    if(low[x]==dfn[x])
+    if(dfn[x]==low[x])
     {
         timel++;
         while(!ss.empty())
         {
             int y=ss.top();
+            blng[y]=timel;
             vis[y]=0;
             ss.pop();
-            blng[y]=timel;
             if(y==x)break;
         }
     }
 }
+int n,m;
 int main()
 {
-    cin&gt;&gt;n;
-    for(int  i=0;i&lt;n;i++)//处理读入 
-    {
-        int x1,x2,y1,y3,len;
-        char c;
-        cin&gt;&gt;x1&gt;&gt;c&gt;&gt;x2;
-        cin&gt;&gt;y1&gt;&gt;c&gt;&gt;y3&gt;&gt;len;
-        p[i&lt;&lt;1].bg=x1*60+x2;
-        p[i&lt;&lt;1].nd=p[i&lt;&lt;1].bg+len;
-        p[(i&lt;&lt;1)+1].bg=y1*60+y3-len;
-        p[(i&lt;&lt;1)+1].nd=p[(i&lt;&lt;1)+1].bg+len;
-    }
-    for(int i=0;i&lt;2*n;i++)//建图 
-        for(int j=i+1;j&lt;2*n;j++)
-            if(p[i].bg&gt;=p[j].bg&amp;&amp;p[i].bg&lt;p[j].nd)
-            {
-                add(i,j^1);
-                add(j,i^1);
-            }
-            else
-                if(p[j].bg&gt;=p[i].bg&amp;&amp;p[j].bg&lt;p[i].nd)
-                {
-                    add(j,i^1);
-                    add(i,j^1);
-                }
-    for(int i=0;i&lt;2*n;i++)//tarjan缩点 
-        if(!dfn[i])tarjan(i);
-    for(int i=0;i&lt;2*n;i+=2)//判断是否有解 
-        if(blng[i]==blng[i+1])
+    while(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n)
+    {    
+        tot=0;
+        t=0;
+        timel=0;
+        bool f=0;
+        memset(dfn,0,sizeof(dfn));
+        memset(low,0,sizeof(low));
+        memset(had,0,sizeof(had));
+        memset(nxt,0,sizeof(nxt));
+        memset(blng,0,sizeof(blng));    
+        memset(point,0,sizeof(point));
+        for(int i=0;i&lt;m;i++)
         {
-            cout&lt;&lt;&quot;NO&quot;;
-            return 0;
+            int w,h;
+            char w1,h1;
+            cin&gt;&gt;w&gt;&gt;w1;
+            cin&gt;&gt;h&gt;&gt;h1;
+            w&lt;&lt;=1;
+            h&lt;&lt;=1;
+            if(w1==&#39;h&#39;)w++;
+            if(h1==&#39;h&#39;)h++;
+            add(w,h^1);
+            add(h,w^1);
         }
-    for(int i=0;i&lt;2*n;i+=2)//在对应点中选取所属时间戳小的 
-        if(blng[i]&lt;blng[i+1])ans[i/2]=i;
-        else ans[i/2]=i+1;
-    cout&lt;&lt;&quot;YES\n&quot;;
-    for(int i=0;i&lt;n;i++)//处理并输出 
-        printf(&quot;%02d:%02d %02d:%02d\n&quot;,p[ans[i]].bg/60,p[ans[i]].bg%60,p[ans[i]].nd/60,p[ans[i]].nd%60);
+        add(0,1); 
+        for(int i=0;i&lt;2*n;i++)
+            if(!dfn[i])tarjan(i);
+        for(int i=0;i&lt;2*n;i+=2)
+            if(blng[i]==blng[i+1])
+            {
+                f=1;
+                cout&lt;&lt;&quot;bad luck\n&quot;;
+                break;
+            }
+        if(f)continue;
+        for(int i=2;i&lt;2*n;i+=2)
+        {
+            cout&lt;&lt;(i&gt;&gt;1);
+            if(blng[i]&lt;blng[i+1])cout&lt;&lt;&quot;h &quot;;
+            else cout&lt;&lt;&quot;w &quot;;
+        }
+        cout&lt;&lt;endl;
+    }
     return 0;
 }
 </code></pre>
-<p>这题还有一个坑点就是若一场婚礼的结束时间与下一场婚礼的开始时间是一样的的话，我们认为这不冲突。为了这个WA了一次。。。</p>
 
         
     
@@ -626,21 +628,13 @@ int main()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/09/19/poj3648/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/09/15/一个挺有意思的证明/" id="post_nav-older" class="next-content">
+        <a href="/2017/09/19/poj3583/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
