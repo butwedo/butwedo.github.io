@@ -3,6 +3,82 @@
   
     
     <entry>
+      <title><![CDATA[bzoj1013]]></title>
+      <url>/2017/09/20/bzoj1013/</url>
+      <content type="html"><![CDATA[<p>本来是打算这两天一口气刷完poj的6到2-sat的，但昨天的模拟赛被一道题高斯消元直接虐了3个半小时没调出来，后来发现自己的高斯消元的板子就是错的= =。。</p>
+<p>今天决定更新一下板子，就参照着<a href="http://hzwer.com/1981.html" target="_blank" rel="external">黄学长的博客</a>打了一下这道题WA了几遍总算AC了，没什么大问题。</p>
+<p>照例丢<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1013" target="_blank" rel="external">链接</a>.</p>
+<p>这道题题目大意是说给你一个n维空间球上的n+1个点，让你求球心坐标。只要处理一下输入就变成了一道高斯消元的模板题。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cmath&gt;
+using namespace std;
+double gs[20][20];
+double f[20];
+int n;
+int main()
+{
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++)
+        cin&gt;&gt;f[i];
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=n;j++)
+        {
+            double a;
+            cin&gt;&gt;a;
+            gs[i][j]=2*a-2*f[j];
+            gs[i][n+1]+=a*a;
+            gs[i][n+1]-=f[j]*f[j];
+        }
+    //对于读入的处理：
+    //我们通过n个坐标列距离公式，拆开再合并可以列出n个多项式
+    //再通过剩下的那个坐标构建等式，移项消元构建方程。 
+    for(int i=1;i&lt;=n;i++)
+    {
+        int big=0,mn;
+        for(int j=1;j&lt;=n;j++)
+            if(fabs(gs[i][j])&gt;big&amp;&amp;gs[i][j]!=0)
+            {
+                big=gs[i][j];
+                mn=j;
+            }
+        if(mn!=i)
+            for(int j=1;j&lt;=n+1;j++)
+                swap(gs[i][j],gs[mn][j]);
+        for(int j=1;j&lt;=n;j++)
+        {
+            if(j==i)continue;
+            double a=gs[j][i]/gs[i][i];
+            for(int k=1;k&lt;=n+1;k++)
+                gs[j][k]-=gs[i][k]*a;
+        }
+    }
+    for(int i=1;i&lt;n;i++)
+        printf(&quot;%.3lf &quot;,gs[i][n+1]/gs[i][i]);
+    printf(&quot;%.3lf&quot;,gs[n][n+1]/gs[n][n]);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> bzoj </tag>
+            
+            <tag> 数学，高斯消元 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[poj3648]]></title>
       <url>/2017/09/19/poj3648/</url>
       <content type="html"><![CDATA[<p>一天之内完成两道2-sat，新方法就是霸气~</p>
