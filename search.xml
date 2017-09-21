@@ -699,7 +699,9 @@ int main()
             
             <tag> bzoj </tag>
             
-            <tag> 数学，高斯消元 </tag>
+            <tag> 数学 </tag>
+            
+            <tag> 高斯消元 </tag>
             
         </tags>
         
@@ -1190,14 +1192,14 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
