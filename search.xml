@@ -824,9 +824,9 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-SAT </tag>
-            
             <tag> poj </tag>
+            
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -947,9 +947,9 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-SAT </tag>
-            
             <tag> poj </tag>
+            
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -1192,12 +1192,6 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
       <content type="html"></content>
@@ -1206,6 +1200,12 @@ int main()
     <entry>
       <title><![CDATA[tags]]></title>
       <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
