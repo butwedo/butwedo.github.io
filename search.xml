@@ -3,6 +3,580 @@
   
     
     <entry>
+      <title><![CDATA[poj3678/poj3207]]></title>
+      <url>/2017/09/21/poj3678_poj3207/</url>
+      <content type="html"><![CDATA[<p>两道入门的2-sat，只要判定是否有解即可。</p>
+<h3 id="poj3678"><a href="#poj3678" class="headerlink" title="poj3678"></a>poj3678</h3><hr>
+<p> <a href="http://poj.org/problem?id=3278" target="_blank" rel="external">题目链接</a><br> 直接读入然后按照题目要求和位运算规则建图即可，不多解释。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+using namespace std;
+int dfn[100002],low[100002];
+int tot,had[100002],nxt[4000006],point[4000006];
+int blng[100002];
+int t;
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+} 
+bool vis[1003];
+stack&lt;int&gt;s;
+void tarjan(int x)
+{
+    low[x]=dfn[x]=++t;
+    vis[x]=1;
+    s.push(x);
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])
+        {
+            low[x]=min(low[x],dfn[to]);
+        }
+    }
+    if(dfn[x]==low[x])
+    {
+        int y;
+        while(!s.empty())
+        {
+            y=s.top();
+            s.pop();
+            vis[y]=0;
+            blng[y]=x;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=m;i++)
+    {
+        int a,b,c;
+        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
+        a++;b++;
+        char ch[10];
+        scanf(&quot;%s&quot;,ch);
+        if(!strcmp(ch,&quot;AND&quot;))
+        {
+            if(c==0)
+            {
+                add(a+n,b);
+                add(b+n,a);
+            }
+            else
+            {
+                add(a,a+n);
+                add(b,b+n);
+                add(a+n,b+n);
+                add(b+n,a+n);
+            }
+        }
+        if(!strcmp(ch,&quot;OR&quot;))
+        {
+            if(c==0)
+            {
+                add(a,b);
+                add(b,a);
+                add(a+n,a);
+                add(b+n,b);
+            }
+            else
+            {
+                add(a,b+n);
+                add(b,a+n);
+            }
+        }
+        if(!strcmp(ch,&quot;XOR&quot;))
+        {
+            if(c==0)
+            {
+                add(a,b);
+                add(b,a);
+                add(a+n,b+n);
+                add(b+n,a+n);
+            }
+            else
+            {
+                add(a,b+n);
+                add(b+n,a);
+                add(a+n,b);
+                add(b,a+n);
+            }
+        }
+    }
+    for(int i=1;i&lt;=2*n;i++)
+    {
+        if(!dfn[i])tarjan(i);
+    }
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(blng[i]==blng[i+n])
+        {
+            printf(&quot;NO&quot;);
+            return 0;
+        }
+    }
+    printf(&quot;YES&quot;);
+    return 0;
+}
+</code></pre>
+<h3 id="poj3207"><a href="#poj3207" class="headerlink" title="poj3207"></a>poj3207</h3><hr>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">题目链接</a></p>
+<p>在围成一个圈的点之间连边，边不能与圈交叉，即要么全在里面要么全在外面。将所有的边读进来之后，将边的编号拆点，若两条边可能交叉就对应连边建图。之后判定即可。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int big=1000002;
+int dfn[big],low[big];
+int tot,n,m;
+int t;
+int had[big],nxt[big],point[big];
+bool vis[big];
+int blng[big];
+int l[big];
+int r[big];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+stack&lt;int&gt; sk;
+void tarjan(int x)
+{
+    dfn[x]=low[x]=++t;
+    vis[x]=1;
+    sk.push(x);
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(low[x]==dfn[x])
+    {
+        int y;
+        while(!sk.empty())
+        {
+            y=sk.top();
+            sk.pop();
+            vis[y]=0;
+            blng[y]=x;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=m;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        r[i]=r[i+m]=max(a,b)+1;
+        l[i]=l[i+m]=min(a,b)+1; 
+    }
+    for(int i=1;i&lt;m;i++)
+        for(int j=1+i;j&lt;=m;j++)
+        {
+            if(r[i]&gt;=l[j]&amp;&amp;r[i]&lt;=r[j]&amp;&amp;l[i]&lt;=l[j])
+            {
+                add(i,j+m);
+                add(j,i+m);
+                add(j+m,i);
+                add(i+m,j);
+            }
+            if(r[j]&gt;=l[i]&amp;&amp;r[i]&lt;=r[j]&amp;&amp;l[i]&lt;=l[j])
+            {
+                add(i,j+m);
+                add(j,i+m);
+            }
+        }
+    for(int i=1;i&lt;=2*m;i++)
+    {
+        if(!dfn[i])tarjan(i);
+    }
+    bool f=1;
+    for(int i=1;i&lt;=m;i++)
+    {
+        if(blng[i]==blng[i+m])
+        {
+            f=0;
+            break;
+        }
+    }
+    if(f)cout&lt;&lt;&quot;panda is telling the truth...&quot;;
+    else cout&lt;&lt;&quot;the evil panda is lying again&quot;;
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-sat </tag>
+            
+            <tag> poj </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[poj2749]]></title>
+      <url>/2017/09/21/poj2749/</url>
+      <content type="html"><![CDATA[<p>poj六道2-sat中的最后一道。事实上也算比较基础的，不用输出方案，只是建图的时候要多注意一些。</p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">题目链接</a></p>
+<p>大意是给你两个源点，有n个点要向这两个点中的一个连边，边长为他们的曼哈顿距离，其中有的点必须连同一个源点，有的点必须连不同的源点。两个源点之间有边。给出两个源点和这n个点的坐标，要求使这n个点中任意两点之间的边长（点到源点再到点的边长）尽可能的小。</p>
+<p>由于“最小化最长的连边”具有单调性，我们可以二分答案。每次二分时重新建图，将边长大于答案的边所连的两个点连（2-sat所成图中的）边。可行的话再向下二分，否则向上二分。</p>
+<p>自己调了一个下午的代码老是不对，连样例都过不去。后来参考网上的题解还是不行，最后还是同机房的dalao帮忙找出了错，不止一个还一个比一个智障。。。。</p>
+<p>放上渣代码(捂脸)</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;stack&gt;
+#include&lt;algorithm&gt;
+#include&lt;cmath&gt;
+using namespace std;
+int had[1003],nxt[500000],point[500000];
+int tot;
+int sdis;
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+int t,timel;
+int dfn[1002],low[1004];
+stack&lt;int&gt;ss;
+bool vis[1003];
+int dis1[5090],dis2[5090];
+int blng[1002];
+int hate[5009][2];
+int like[5009][2];
+void tarjan(int u) 
+{
+    int v,i;
+    dfn[u]=low[u]=++t;
+    vis[u]=1;
+    ss.push(u);
+    for(i=had[u];i;i=nxt[i]) 
+    {
+        v=point[i];
+        if(!dfn[v]) 
+        {
+            tarjan(v);
+            low[u]=min(low[u],low[v]);
+        } 
+        else if(vis[v]) 
+            low[u]=min(low[u],dfn[v]);
+    }
+    if(dfn[u] == low[u]) 
+    {
+        timel++;
+        do 
+        {
+            v=ss.top();
+            ss.pop();
+            blng[v]=timel;
+            vis[v]=false;
+        } while(v!=u);
+    }
+}
+int n,lk,ht;
+int big;
+void build(int lim) 
+{
+    int i,j,x,y;
+    for(i=0;i&lt;ht;i++) 
+    {
+        x=hate[i][0]*2; 
+        y=hate[i][1]*2;
+        add(x,y+1); 
+        add(y,x+1);
+        add(y+1,x); 
+        add(x+1,y);
+    }
+    for(i=0;i&lt;lk;i++) 
+    {
+        x=like[i][0]*2;
+        y=like[i][1]*2;
+        add(x,y); 
+        add(x+1,y+1);
+        add(y,x); 
+        add(y+1,x+1);
+    }
+    for(i=0;i&lt;n;i++) 
+        for(j=i+1;j&lt;n;j++) 
+        {
+            x=i&lt;&lt;1;
+            y=j&lt;&lt;1;
+            if(dis1[i]+dis1[j]&gt;lim)     
+            {
+                add(x,y+1);
+                add(y,x+1);
+            }
+            if(dis2[i]+dis2[j]&gt;lim)    
+            {
+                add(x+1,y);
+                add(y+1,x);
+            }
+            if(dis1[i]+dis2[j]+sdis&gt;lim)    
+            {
+                add(x,y);
+                add(y+1,x+1);
+            }
+            if(dis2[i]+dis1[j]+sdis&gt;lim) 
+            {    
+                add(x+1,y+1);
+                add(y,x);
+            }
+        }
+}
+bool cando()
+{
+    for(int i=0;i&lt;2*n;i+=2)
+        if(blng[i]==blng[i+1])
+            return 0;
+    return 1;
+}
+bool solve(int lim)
+{
+    memset(blng,0,sizeof(blng));
+    memset(dfn,0,sizeof(dfn));
+    memset(low,0,sizeof(low));
+    tot=0;
+    timel=0;
+    t=0;
+    memset(had,0,sizeof(had));
+    memset(point,0,sizeof(point));
+    memset(nxt,0,sizeof(nxt));
+    build(lim);
+    for(int i=0;i&lt;2*n;i++)
+        if(!dfn[i])tarjan(i);
+    for(int i=0;i&lt;2*n;i+=2)
+        if(blng[i]==blng[i+1])
+            return 0;
+    return 1;
+}
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;ht&gt;&gt;lk;
+    int x1,x2,y1,y2;
+    cin&gt;&gt;x1&gt;&gt;y1&gt;&gt;x2&gt;&gt;y2;
+    sdis=abs(x1-x2)+abs(y1-y2);
+    for(int i=0;i&lt;n;i++) 
+    {
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        dis1[i]=abs(x-x1)+abs(y-y1);
+        dis2[i]=abs(x-x2)+abs(y-y2);
+        big=max(big,max(dis1[i],dis2[i]));
+    }
+    for(int i=0;i&lt;ht;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        a--;
+        b--;
+        hate[i][0]=a;
+        hate[i][1]=b;
+    }
+    for(int i=0;i&lt;lk;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        a--;
+        b--;
+        like[i][0]=a;
+        like[i][1]=b;
+    }
+    int l=0, r=big*3,mid,ans=-1;
+    while(l&lt;=r) 
+    {
+        mid=(l+r)&gt;&gt;1;
+        if(solve(mid))    
+        {
+            ans=mid;
+            r=mid-1;
+        }
+        else l=mid+1;
+    }
+    cout&lt;&lt;ans;
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-sat </tag>
+            
+            <tag> poj </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[poj2723]]></title>
+      <url>/2017/09/21/poj2723/</url>
+      <content type="html"><![CDATA[<p>一道很基础的2-sat，题目链接戳<a href="http://poj.org/problem?id=2723" target="_blank" rel="external">这里</a>。</p>
+<p>大意是，你有n对钥匙，每对钥匙中只能选一个。你要开m个门，每个门可以用两把给定钥匙中的任意一把打开，问你最多能开到第几道门。</p>
+<p>为了方便处理，我们先做个映射，把第i对钥匙的编号转换为<br><code>i*2</code>和<code>i*2+1</code>。然后将门当做限制连边，每读入一个就连一条边，判定是否可行，直到不可行为止。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;stack&gt;
+using namespace std;
+int mp[10000]; 
+int tot;
+int had[5050],nxt[5000],point[5005];
+int t;
+int dfn[20000],low[20000];
+int blng[20000];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+stack&lt;int&gt; ss;
+bool vis[20000];
+void tarjan(int x)
+{
+    t++;
+    dfn[x]=low[x]=t;
+    vis[x]=1;
+    ss.push(x);
+    for(int i=had[x];i!=-1;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(low[x]==dfn[x])
+    {
+        int y=ss.top();
+        while(!ss.empty())
+        {
+            y=ss.top();
+            ss.pop();
+            blng[y]=x;
+            vis[y]=0;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    int n,m;
+    while(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n)
+    {
+        tot=0;
+        memset(had,-1,sizeof(had));
+        memset(nxt,-1,sizeof(nxt));
+        memset(point,-1,sizeof(point));
+        for(int i=0;i&lt;n;i++)
+        {
+            int a,b;
+            cin&gt;&gt;a&gt;&gt;b;
+            mp[a]=2*i;
+            mp[b]=2*i+1; 
+        }
+        bool f=0;
+        for(int i=1;i&lt;=m;i++)
+        {
+            int a,b;
+            cin&gt;&gt;a&gt;&gt;b;
+            if(f)continue;
+            add(mp[a],mp[b]^1);
+            add(mp[b],mp[a]^1);
+            t=0;
+            memset(dfn,0,sizeof(dfn));
+            memset(low,0,sizeof(low));
+            memset(vis,0,sizeof(vis));
+            memset(blng,0,sizeof(blng));
+            for(int j=0;j&lt;2*n;j++)
+                if(!dfn[j])tarjan(j);
+            for(int j=0;j&lt;2*n;j+=2)
+                if(blng[j]==blng[j+1])
+                {
+                    cout&lt;&lt;i-1&lt;&lt;endl;
+                    f=1;
+                    break;
+                }
+        }
+        if(f==0)cout&lt;&lt;m&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-sat </tag>
+            
+            <tag> poj </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[bzoj1013]]></title>
       <url>/2017/09/20/bzoj1013/</url>
       <content type="html"><![CDATA[<p>本来是打算这两天一口气刷完poj的6到2-sat的，但昨天的模拟赛被一道题高斯消元直接虐了3个半小时没调出来，后来发现自己的高斯消元的板子就是错的= =。。</p>
@@ -195,9 +769,9 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-SAT </tag>
-            
             <tag> poj </tag>
+            
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -318,9 +892,9 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-SAT </tag>
-            
             <tag> poj </tag>
+            
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -546,7 +1120,7 @@ int main()
       <title></title>
       <url>/about_me/index.html</url>
       <content type="html"><![CDATA[<blockquote>
-<p><em>Let’s the rest be the tale they tell.</em></p>
+<p><em>Let the rest be the tale they tell.</em></p>
 </blockquote>
 <p>现役OIer一枚，从初二开始搞OI，现在仍是初二水平。从高一开始就一直宣扬要从学校开始革命<del>不过从来不敢玩儿真的</del></p>
 <p>曾经很喜欢Linkin Park，现在也很喜欢只是因为一些原因不太想听他们的歌了。从Linkin Park跳到了活结再跳到曼森再跳到夜愿，目前徘徊在各种黑金与死金与核中（<del>然而并不能分清各种风格</del>）。</p>
@@ -563,12 +1137,6 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
       <content type="html"></content>
@@ -577,6 +1145,12 @@ int main()
     <entry>
       <title><![CDATA[tags]]></title>
       <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
