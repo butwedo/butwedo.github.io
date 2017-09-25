@@ -240,7 +240,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 21 2017 15:44:40 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Sep 21 2017 15:44:40 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Sep 25 2017 21:25:44 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -267,7 +267,7 @@
     "mainEntityOfPage": "http://butwedo.space/2017/09/21/2-sat总结/index.html",
     "headline": "2-sat总结",
     "datePublished": "Thu Sep 21 2017 15:44:40 GMT+0800",
-    "dateModified": "Thu Sep 21 2017 15:44:40 GMT+0800",
+    "dateModified": "Mon Sep 25 2017 21:25:44 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sounix",
@@ -505,9 +505,9 @@
 <p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
 <p>然后对于上述4种限制，我们可以转换并连边为</p>
 <pre><code>若选A，则必选B  (从A到B连边)
-若选A，则必选B&#39; (从A到B&#39;连边)
-若选A&#39;，则必选B&#39;(从A&#39;到B&#39;连边)
-若选A&#39;，则必选B (从A&#39;到B连边)
+若选A，则必选B* (从A到B*连边)
+若选A*，则必选B&#39;(从A*到B*连边)
+若选A*，则必选B (从A*到B连边)
 </code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
 <p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
 <p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
