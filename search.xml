@@ -1172,9 +1172,23 @@ int main()
   
     
     <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
+      <title></title>
+      <url>/about_me/index.html</url>
+      <content type="html"><![CDATA[<blockquote>
+<p><em>Let the rest be the tale they tell.</em></p>
+</blockquote>
+<p>现役OIer一枚，从初二开始搞OI，现在仍是初二水平。从高一开始就一直宣扬要从学校开始革命<del>不过从来不敢玩儿真的</del></p>
+<p>曾经很喜欢Linkin Park，现在也很喜欢只是因为一些原因不太想听他们的歌了。从Linkin Park跳到了活结再跳到曼森再跳到夜愿，目前徘徊在各种黑金与死金与核中（<del>然而并不能分清各种风格</del>）。</p>
+<p>每次在一群听着二次元音乐欧美流行和大陆情歌的dalao之间打代码的时候就会感到非常孤独。</p>
+<p>喜欢变形金刚。入坑是因为TFP。</p>
+<p>入TFP的坑是因为声波。</p>
+<p>对于变形金刚的电影版只喜欢前3部，最喜欢第三部。</p>
+<p>不喜欢4和5的原因是因为拍得烂而且柱子哥变丑了。<br>喜欢第三部是因为有震荡波。</p>
+<p>家里有十几个模型了，总价大约是2000+。但大多是KO。</p>
+<p><del>事实上这个总价也就能买个正版电影版的擎天柱</del></p>
+<p>也很喜欢昆虫和文学，总之喜欢的东西没一个是和OI沾边的= =（然而这样也不能抑制我对OI的热爱？）</p>
+<p>我也不知道写这个有什么用但自我介绍一下总是好的。</p>
+<embed src="//music.163.com/style/swf/widget.swf?sid=28837241&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">]]></content>
     </entry>
     
     <entry>
@@ -1196,23 +1210,9 @@ int main()
     </entry>
     
     <entry>
-      <title></title>
-      <url>/about_me/index.html</url>
-      <content type="html"><![CDATA[<blockquote>
-<p><em>Let the rest be the tale they tell.</em></p>
-</blockquote>
-<p>现役OIer一枚，从初二开始搞OI，现在仍是初二水平。从高一开始就一直宣扬要从学校开始革命<del>不过从来不敢玩儿真的</del></p>
-<p>曾经很喜欢Linkin Park，现在也很喜欢只是因为一些原因不太想听他们的歌了。从Linkin Park跳到了活结再跳到曼森再跳到夜愿，目前徘徊在各种黑金与死金与核中（<del>然而并不能分清各种风格</del>）。</p>
-<p>每次在一群听着二次元音乐欧美流行和大陆情歌的dalao之间打代码的时候就会感到非常孤独。</p>
-<p>喜欢变形金刚。入坑是因为TFP。</p>
-<p>入TFP的坑是因为声波。</p>
-<p>对于变形金刚的电影版只喜欢前3部，最喜欢第三部。</p>
-<p>不喜欢4和5的原因是因为拍得烂而且柱子哥变丑了。<br>喜欢第三部是因为有震荡波。</p>
-<p>家里有十几个模型了，总价大约是2000+。但大多是KO。</p>
-<p><del>事实上这个总价也就能买个正版电影版的擎天柱</del></p>
-<p>也很喜欢昆虫和文学，总之喜欢的东西没一个是和OI沾边的= =（然而这样也不能抑制我对OI的热爱？）</p>
-<p>我也不知道写这个有什么用但自我介绍一下总是好的。</p>
-<embed src="//music.163.com/style/swf/widget.swf?sid=28837241&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">]]></content>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
     </entry>
     
   
