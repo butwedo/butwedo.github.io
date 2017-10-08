@@ -3,6 +3,231 @@
   
     
     <entry>
+      <title><![CDATA[poj2060]]></title>
+      <url>/2017/10/08/poj2060/</url>
+      <content type="html"><![CDATA[<p>有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。</p>
+<p>并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&lt;=b的开始时间<br>将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。</p>
+<p>还get到了一个scanf的新用法：<code>scanf(&quot;%d:%d&quot;,&amp;a,&amp;b)</code>可以直接跳过去中间的’:’直接读入b，当时用的getchar还RE了几遍，用这个就AC了QAQ</p>
+<p>附上题目链接：<a href="http://poj.org/problem?id=2060" target="_blank" rel="external">poj2060</a></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int tot;
+int had[1030],point[500*500+2],nxt[500*500+2];
+int fa[1004];
+bool vis[1003];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+bool cando(int x)
+{
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!vis[to])
+        {
+            vis[to]=1;
+            if(fa[to]==0||cando(fa[to]))
+            {
+                fa[to]=x;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int n,m,t;
+struct dou{
+    int stt,nd;
+    int s1,s2,e1,e2;
+}p[504];
+inline int ab(int x)
+{
+    if(x&lt;0)return -x;
+    return x;
+}
+inline bool line(int x,int y)
+{
+    int dis=ab(p[x].e1-p[y].s1)+ab(p[x].e2-p[y].s2);
+    if(p[x].nd+dis&lt;p[y].stt)return 1;
+    return 0;
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--)
+    {
+        scanf(&quot;%d&quot;,&amp;n);
+        tot=0;
+        int day=0;
+        memset(fa,0,sizeof(fa));
+        memset(had,0,sizeof(had));
+        int a,b;
+        for(int i=1;i&lt;=n;i++)
+        {
+            scanf(&quot;%d:%d&quot;,&amp;a,&amp;b);
+            p[i].stt=a*60+b;
+            scanf(&quot;%d%d%d%d&quot;,&amp;p[i].s1,&amp;p[i].s2,&amp;p[i].e1,&amp;p[i].e2);
+            p[i].nd=p[i].stt+ab(p[i].s1-p[i].e1)+ab(p[i].s2-p[i].e2);
+            while(p[i].stt&lt;p[i-1].stt)
+            {
+                p[i].stt+=24*60;
+                p[i].nd+=24*60;
+            }
+        }
+        for(int i=1;i&lt;=n;i++)
+            for(int j=i+1;j&lt;=n;j++)
+                if(line(i,j))add(i,j+n);
+    //    for(int i=1;i&lt;=n;i++)
+    //        cout&lt;&lt;p[i].stt&lt;&lt;&#39; &#39;&lt;&lt;p[i].nd&lt;&lt;endl;
+        int ans=0;
+        for(int i=1;i&lt;=n;i++)
+        {
+            memset(vis,0,sizeof(vis));
+            if(cando(i))ans++;
+        }
+        printf(&quot;%d\n&quot;,n-ans);
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 二分图 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[poj2226]]></title>
+      <url>/2017/10/08/poj2226/</url>
+      <content type="html"><![CDATA[<p>一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。</p>
+<p><a href="http://poj.org/problem?id=2226" target="_blank" rel="external">poj2226题目链接</a></p>
+<p>贴出渣代码：</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+char c[100][100];
+int f[100][100];
+int n,m;
+int fa[1000];
+bool vis[1000];
+int tot;
+int had[1000],nxt[160004],point[160004];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+bool cando(int x)
+{
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!vis[to])
+        {
+            vis[to]=1;
+            if(fa[to]==0||cando(fa[to]))
+            {
+                fa[to]=x;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int ns,ms;
+int main()
+{
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%s&quot;,c[i]+1);
+    int ans=0;
+    for(int i=1;i&lt;=n;i++)
+    {
+        int t=0;
+        for(int j=1;j&lt;=m;j++)
+            if(t==0&amp;&amp;c[i][j]==&#39;*&#39;)
+            {
+                ns++;
+                f[i][j]=ns;
+                t=1;
+            }
+            else
+            {
+                if(t==1&amp;&amp;c[i][j]==&#39;*&#39;)
+                    f[i][j]=ns;
+                if(t==1&amp;&amp;c[i][j]==&#39;.&#39;)
+                    t=0;
+            }
+    }
+    for(int i=1;i&lt;=m;i++)
+    {
+        int t=0;
+        for(int j=1;j&lt;=n;j++)
+            if(t==0&amp;&amp;c[j][i]==&#39;*&#39;)
+            {
+                ms++;
+                add(f[j][i],ms);
+                t=1;
+            }
+            else
+            {
+                if(t==1&amp;&amp;c[j][i]==&#39;*&#39;)
+                    add(f[j][i],ms);
+                if(t==1&amp;&amp;c[j][i]==&#39;.&#39;)
+                    t=0;
+            }
+    }
+    for(int i=1;i&lt;=ns;i++)
+    {
+        memset(vis,0,sizeof(vis));
+        if(cando(i))ans++;
+    }
+    printf(&quot;%d\n&quot;,ans);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 二分图 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[2-sat总结]]></title>
       <url>/2017/09/21/2-sat%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
@@ -1192,6 +1417,12 @@ int main()
     </entry>
     
     <entry>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[friends and links]]></title>
       <url>/links/index.html</url>
       <content type="html"></content>
@@ -1200,12 +1431,6 @@ int main()
     <entry>
       <title><![CDATA[tags]]></title>
       <url>/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
