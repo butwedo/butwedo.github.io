@@ -3,6 +3,215 @@
   
     
     <entry>
+      <title><![CDATA[poj3522]]></title>
+      <url>/2017/10/09/poj3522/</url>
+      <content type="html"><![CDATA[<p>一道对于最小生成树算法的很不错的应用。</p>
+<p>题目要求是给你一张图，求一棵树，要求其 <strong>最大边与最小边的差值</strong> 最小。</p>
+<p>考虑kruskal算法，排序之后我们枚举最小界，然后每次构建最小生成树可以得到最大边，然后不断地更新答案就好了。</p>
+<p><a href="http://poj.org/problem?id=3522" target="_blank" rel="external">poj3522</a></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+struct dou{
+    int x,y;
+    int w;
+}l[10004];
+int fa[103];
+bool cmp(dou x,dou y)
+{
+    return x.w&lt;y.w;
+}
+int gef(int x)
+{
+    if(fa[x]==x)return x;
+    return fa[x]=gef(fa[x]);
+}
+int n,m;
+int main()
+{
+    while((~scanf(&quot;%d%d&quot;,&amp;n,&amp;m))&amp;&amp;n)
+    {
+        for(int i=1;i&lt;=m;i++)
+            scanf(&quot;%d%d%d&quot;,&amp;l[i].x,&amp;l[i].y,&amp;l[i].w);
+        sort(l+1,l+1+m,cmp);
+        int big=l[m].w;
+        for(int i=1;i&lt;=m;i++)
+        {
+            int j,k;
+            for(j=1;j&lt;=n;j++)
+                fa[j]=j;
+            for(j=i;j&lt;=m;j++)
+            {
+                int x=gef(l[j].x);
+                int y=gef(l[j].y);
+                if(x!=y) 
+                {
+                    fa[x]=y;
+                    k=j;
+                }
+            }
+            int sum=0;
+            for(int j=1;j&lt;=n;j++)
+            {
+                fa[j]=gef(fa[j]);
+                if(fa[j]==j)sum++;
+            }
+            if(sum!=1)break;
+            big=min(big,l[k].w-l[i].w);
+        }
+        if(big==l[m].w)big=-1;
+        printf(&quot;%d\n&quot;,big);
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 最小生成树 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[2-sat总结]]></title>
+      <url>/2017/10/09/2-sat%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
+<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：</p>
+<pre><code>若A为真，则B必为真
+若A为真，则B必不为真
+若A为假，则B必为假
+若A为假，则B必为真
+</code></pre><p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
+<p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
+<p>然后对于上述4种限制，我们可以转换并连边为</p>
+<pre><code>若选A，则必选B  (从A到B连边)
+若选A，则必选B* (从A到B*连边)
+若选A*，则必选B*(从A*到B*连边)
+若选A*，则必选B (从A*到B连边)
+</code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
+<p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
+<p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
+<p>对于要求输出一组解的情况，一般的方法是对已缩完点的图建立反图，对反图进行拓扑排序然后染色，将出度为0的点染成红色，并将它们的对应点以及其前驱都染成蓝色，当所有点都染色完毕后，所有红色的点就是一组解。</p>
+<p>然而还有更简便的方法：当我们用tarjan进行缩点的时候，所有强连通分量求出的顺序就是原图的逆拓扑序，由此我们省略了建立反图和拓扑排序。再者，根据2-sat的对称性，对于每一对对应点我们都选所在联通块时间戳更小的，这样对于大的那个点，其前驱必定是所在点对中时间戳大的。这样，我们只需一遍tarjan即可求出一组解。</p>
+<p>对于一些题目，要求求出字典序最小的点。对于这样的题目，我们无法缩点解决，似乎唯一可行的方案就是爆搜。。。不过poj的六道题中是没有这样的题的。</p>
+<blockquote>
+<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽）</p>
+</blockquote>
+<p>附上poj上的6到题以及我的渣题解</p>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a></p>
+<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/2017/09/21/poj3678_poj3207/">poj3207、poj3678题解</a></p>
+<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/2017/09/21/poj2723/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/2017/09/19/poj3683/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/2017/09/19/poj3648/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/2017/09/21/poj2749/">题解</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 算法 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-sat </tag>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[bzoj1034]]></title>
+      <url>/2017/10/09/bzoj1034/</url>
+      <content type="html"><![CDATA[<p>应该是改编自USACO的田忌赛马？最好的情况好处理，直接套用田忌赛马思想，排序后从小的开始比较，可以比过就加分，不行的话再看最大的能不能比过，能就加分，如果都不行那就用自己最弱的去怼掉对方最强的。对于最坏的情况很明显我们能看出就是对手最好的情况，所以我们按照刚才的策略对对手进行一波贪心，由于不管谁输谁赢或是平局，一局对两人带来的分数总和都是2，所以我们只要用n*2-对手的最优即可得到己方的最坏情况。</p>
+<p>题目链接：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1034" target="_blank" rel="external">bzoj1034</a></p>
+<p>渣代码：</p>
+<pre><code class="cpp">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int n,ans;
+int zj[100005],ds[100005];
+int solve(int zj[],int ds[])
+{
+    int zi=1,di=1;
+    int zn=n,dn=n;
+    int m=n;
+    int ans=0;
+    while(m--)
+    {
+        if(zj[zi]&gt;ds[di])
+        {
+            ans+=2;
+            zi++;
+            di++;
+        }
+        else if(zj[zn]&gt;ds[dn])
+        {
+            ans+=2;
+            zn--;
+            dn--;
+        }
+        else 
+        {
+            ans+=(zj[zi]==ds[dn]);
+            zi++;
+            dn--;
+        }
+    }
+    return ans;
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;zj[i]);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;ds[i]);
+    sort(zj+1,zj+n+1);
+    sort(ds+1,ds+n+1);
+    printf(&quot;%d %d&quot;,solve(zj,ds),2*n-solve(ds,zj));
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> OJ题目 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> 水题 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[poj2060]]></title>
       <url>/2017/10/08/poj2060/</url>
       <content type="html"><![CDATA[<p>有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。</p>
@@ -222,59 +431,6 @@ int main()
             <tag> 图论 </tag>
             
             <tag> 二分图 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[2-sat总结]]></title>
-      <url>/2017/09/21/2-sat%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
-<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：</p>
-<pre><code>若A为真，则B必为真
-若A为真，则B必不为真
-若A为假，则B必为假
-若A为假，则B必为真
-</code></pre><p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
-<p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
-<p>然后对于上述4种限制，我们可以转换并连边为</p>
-<pre><code>若选A，则必选B  (从A到B连边)
-若选A，则必选B* (从A到B*连边)
-若选A*，则必选B*(从A*到B*连边)
-若选A*，则必选B (从A*到B连边)
-</code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
-<p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
-<p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
-<p>对于要求输出一组解的情况，一般的方法是对已缩完点的图建立反图，对反图进行拓扑排序然后染色，将出度为0的点染成红色，并将它们的对应点以及其前驱都染成蓝色，当所有点都染色完毕后，所有红色的点就是一组解。</p>
-<p>然而还有更简便的方法：当我们用tarjan进行缩点的时候，所有强连通分量求出的顺序就是原图的逆拓扑序，由此我们省略了建立反图和拓扑排序。再者，根据2-sat的对称性，对于每一对对应点我们都选所在联通块时间戳更小的，这样对于大的那个点，其前驱必定是所在点对中时间戳大的。这样，我们只需一遍tarjan即可求出一组解。</p>
-<p>对于一些题目，要求求出字典序最小的点。对于这样的题目，我们无法缩点解决，似乎唯一可行的方案就是爆搜。。。不过poj的六道题中是没有这样的题的。</p>
-<blockquote>
-<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽）</p>
-</blockquote>
-<p>附上poj上的6到题以及我的渣题解</p>
-<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a></p>
-<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="http://butwedo.space/2017/09/21/poj3678_poj3207/">poj3207、poj3678题解</a></p>
-<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="http://butwedo.space/2017/09/21/poj2723/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="http://butwedo.space/2017/09/19/poj3683/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="http://butwedo.space/2017/09/19/poj3648/">题解</a></p>
-<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="http://butwedo.space/2017/09/21/poj2749/">题解</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 算法 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 图论 </tag>
-            
-            <tag> 2-sat </tag>
-            
-            <tag> 总结 </tag>
             
         </tags>
         
@@ -1417,8 +1573,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -1429,8 +1585,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
