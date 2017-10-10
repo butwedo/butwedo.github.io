@@ -82,9 +82,9 @@ int main()
         
         <tags>
             
-            <tag> 贪心 </tag>
-            
             <tag> POI </tag>
+            
+            <tag> 贪心 </tag>
             
         </tags>
         
@@ -1809,14 +1809,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -1827,8 +1821,14 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
