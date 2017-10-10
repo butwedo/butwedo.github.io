@@ -3,6 +3,256 @@
   
     
     <entry>
+      <title><![CDATA[luogu3545(POI)]]></title>
+      <url>/2017/10/10/luogu3545-POI/</url>
+      <content type="html"><![CDATA[<p>POI中的水题，我们尽可能多的去满足顾客，直到当前顾客不能被满足，我们就找到之前需求最大的的顾客，然后判断一下与当前顾客谁的需求更大一些，若当前顾客需求大则跳过他，否则踢掉之前需求最大的顾客，来满足当前顾客。这样答案不会变得更差，而且我们还有了更多的货物更有可能满足后来的人。“找到之前需求最大的顾客”我们可以用堆来实现。整个过程时间复杂度为O(nlogn).</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+using namespace std;
+long long a[250004],b[250005];
+long long n;
+long long rest;
+long long k;
+struct dou
+{
+    long long num,val;
+};
+bool operator &gt; (dou x,dou y)
+{
+    return x.val&gt;y.val;
+}
+bool operator &lt; (dou x,dou y)
+{
+    return x.val&lt;y.val;
+}
+priority_queue&lt;dou&gt; q;
+long long ans;
+bool vis[250005];
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(long long i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;a[i]);
+    for(long long i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;b[i]);
+    dou t;
+    for(long long i=1;i&lt;=n;i++)
+    {
+        rest+=a[i];
+        if(rest&gt;=b[i])
+        {
+            ans++;
+            rest-=b[i];
+            t.val=b[i];
+            t.num=i;
+            vis[i]=1;
+            q.push(t);
+        } 
+        else
+        {
+            if(q.empty())continue;
+            t=q.top();
+            if(b[i]&gt;=t.val)continue;
+            q.pop();
+            rest+=t.val;
+            rest-=b[i];
+            vis[t.num]=0;
+            vis[i]=1;
+            t.num=i;
+            t.val=b[i];
+            q.push(t);
+        }
+    }
+    printf(&quot;%d\n&quot;,ans);
+    for(long long i=1;i&lt;=n;i++)
+        if(vis[i]) printf(&quot;%d &quot;,i);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 贪心 </tag>
+            
+            <tag> POI </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[luogu2444(POI)]]></title>
+      <url>/2017/10/10/luogu2444-POI/</url>
+      <content type="html"><![CDATA[<p>这是一道对于AC自动机很好的一个应用。正常情况下，我们都是希望字符串尽可能的去匹配，这道题则是在匹配完成之前尽可能地转移。于是按照AC自动机的思路我们先建出trie树并构造出fail指针，然后从根开始深搜，如果搜到一个环则我们可以在这个环上不断地构建安全代码，否则无解。在深搜时要注意，我们只能向安全节点（无结束标记的节点）转移。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+using namespace std;
+struct trie{
+    int nxt[2];
+    int fail;
+    int nd;
+};
+int tot;
+trie ac[30400];
+int n;
+char ch[2003];
+inline void add(char *c)
+{
+    int len=strlen(c);
+    int k=0;
+    for(int i=0;i&lt;len;i++)
+    {
+        int j=c[i]-&#39;0&#39;;
+        if(ac[k].nxt[j]==0)
+            ac[k].nxt[j]=++tot;
+        k=ac[k].nxt[j];
+    }
+    ac[k].nd++;
+}
+inline void find_fail()
+{
+    queue&lt;int&gt;q;
+    int r=0;
+    for(int i=0;i&lt;2;i++)
+    {
+        if(ac[r].nxt[i])q.push(ac[r].nxt[i]);
+        ac[ac[r].nxt[i]].fail=0;
+    }
+    while(!q.empty())
+    {
+        int t=q.front();
+        q.pop();
+        for(int i=0;i&lt;2;i++)
+        {
+            if(ac[t].nxt[i])
+            {
+                ac[ac[t].nxt[i]].fail=ac[ac[t].fail].nxt[i];
+                q.push(ac[t].nxt[i]);
+            }
+            else ac[t].nxt[i]=ac[ac[t].fail].nxt[i];
+            if(ac[ac[t].fail].nd)ac[t].nd=1;
+        }
+    }
+}
+int vis[32500];
+int acn[32099];
+void dfs(int d)
+{  
+    vis[d]=1;
+    for(int i=0;i&lt;=1;i++) 
+        if(vis[ac[d].nxt[i]])
+        { 
+            printf(&quot;TAK&quot;);
+            exit(0); 
+        }
+        else if(ac[ac[d].nxt[i]].nd==0&amp;&amp;acn[ac[d].nxt[i]]==0)
+        {
+            acn[ac[d].nxt[i]]=1;
+            dfs(ac[d].nxt[i]);
+        }
+    vis[d]=0; 
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+    {
+        scanf(&quot;%s&quot;,ch);
+        add(ch);
+    }
+    find_fail();
+    dfs(0);
+    printf(&quot;NIE&quot;);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> POI </tag>
+            
+            <tag> AC自动机 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[luogu3420(POI)]]></title>
+      <url>/2017/10/10/luogu3420-POI/</url>
+      <content type="html"><![CDATA[<p>POI中的大大大水题，做法很多，最最麻烦的可以tarjan缩点之后判断有多少入度为0的点，简单的话可以直接深搜，反正我是随手敲了一个并查集，因为错误的数据范围WA了一次然后1A。</p>
+<p><strong>注意：本题不能只开100000的数组！！！</strong></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt; 
+using namespace std;
+int fa[1000005];
+int n;
+int gef(int x)
+{
+    if(fa[x]==x)return x;
+    else return fa[x]=gef(fa[x]);
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+        fa[i]=i;
+    int x;
+    for(int i=1;i&lt;=n;i++)
+    {
+        scanf(&quot;%d&quot;,&amp;x);
+        int fx=gef(x);
+        int y=gef(i);
+        if(fx!=y)fa[y]=fx;
+    }
+    int ans=0;
+    for(int i=1;i&lt;=n;i++)
+        if(fa[i]==i)ans++;
+    printf(&quot;%d&quot;,ans);
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> POI </tag>
+            
+            <tag> 并查集 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[poj3683]]></title>
       <url>/2017/10/10/poj3853/</url>
       <content type="html"><![CDATA[<p>昨天做这道题的时候各种错误，今天早上终于调好了。原来也刷过几道2-sat的题，不过输出方案的这是第一道。本来2-sat输出方案的传统做法是先缩点，再建反图拓扑排个序，然后再染色，将红色点输出，然而昨天查资料的时候发现，其实在tarjan求强连通的时候，每个强联通分量的求出顺序就是原图的逆拓扑序！所以我们根本就不用再拓扑排序。接着，根据对称性，若原题有解的话，根据2-sat的对称性，我们只需在两个对应点之间找所属强连通分量时间戳更小的就行了，这样得出的就一定是一组可行解。</p>
@@ -1559,26 +1809,26 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
