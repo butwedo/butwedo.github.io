@@ -3,8 +3,182 @@
   
     
     <entry>
+      <title><![CDATA[poj3683]]></title>
+      <url>/2017/10/10/poj3853/</url>
+      <content type="html"><![CDATA[<p>昨天做这道题的时候各种错误，今天早上终于调好了。原来也刷过几道2-sat的题，不过输出方案的这是第一道。本来2-sat输出方案的传统做法是先缩点，再建反图拓扑排个序，然后再染色，将红色点输出，然而昨天查资料的时候发现，其实在tarjan求强连通的时候，每个强联通分量的求出顺序就是原图的逆拓扑序！所以我们根本就不用再拓扑排序。接着，根据对称性，若原题有解的话，根据2-sat的对称性，我们只需在两个对应点之间找所属强连通分量时间戳更小的就行了，这样得出的就一定是一组可行解。</p>
+<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">题目链接</a>。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+using namespace std;
+int n;
+int tot,had[3000],nxt[5000000],point[5000000];
+struct wed{
+    int bg;
+    int nd;
+}p[2003];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+bool vis[3000];
+int t;
+int timel;
+int dfn[3000],low[3000];
+int blng[3000];//强连通分量时间戳 
+stack&lt;int&gt;ss;
+int ans[2009];
+void tarjan(int x)
+{
+    dfn[x]=low[x]=++t;
+    vis[x]=t;
+    ss.push(x);
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to]) low[x]=min(low[x],dfn[to]);
+    }
+    if(low[x]==dfn[x])
+    {
+        timel++;
+        while(!ss.empty())
+        {
+            int y=ss.top();
+            vis[y]=0;
+            ss.pop();
+            blng[y]=timel;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    cin&gt;&gt;n;
+    for(int  i=0;i&lt;n;i++)//处理读入 
+    {
+        int x1,x2,y1,y3,len;
+        char c;
+        cin&gt;&gt;x1&gt;&gt;c&gt;&gt;x2;
+        cin&gt;&gt;y1&gt;&gt;c&gt;&gt;y3&gt;&gt;len;
+        p[i&lt;&lt;1].bg=x1*60+x2;
+        p[i&lt;&lt;1].nd=p[i&lt;&lt;1].bg+len;
+        p[(i&lt;&lt;1)+1].bg=y1*60+y3-len;
+        p[(i&lt;&lt;1)+1].nd=p[(i&lt;&lt;1)+1].bg+len;
+    }
+    for(int i=0;i&lt;2*n;i++)//建图 
+        for(int j=i+1;j&lt;2*n;j++)
+            if(p[i].bg&gt;=p[j].bg&amp;&amp;p[i].bg&lt;p[j].nd)
+            {
+                add(i,j^1);
+                add(j,i^1);
+            }
+            else
+                if(p[j].bg&gt;=p[i].bg&amp;&amp;p[j].bg&lt;p[i].nd)
+                {
+                    add(j,i^1);
+                    add(i,j^1);
+                }
+    for(int i=0;i&lt;2*n;i++)//tarjan缩点 
+        if(!dfn[i])tarjan(i);
+    for(int i=0;i&lt;2*n;i+=2)//判断是否有解 
+        if(blng[i]==blng[i+1])
+        {
+            cout&lt;&lt;&quot;NO&quot;;
+            return 0;
+        }
+    for(int i=0;i&lt;2*n;i+=2)//在对应点中选取所属时间戳小的 
+        if(blng[i]&lt;blng[i+1])ans[i/2]=i;
+        else ans[i/2]=i+1;
+    cout&lt;&lt;&quot;YES\n&quot;;
+    for(int i=0;i&lt;n;i++)//处理并输出 
+        printf(&quot;%02d:%02d %02d:%02d\n&quot;,p[ans[i]].bg/60,p[ans[i]].bg%60,p[ans[i]].nd/60,p[ans[i]].nd%60);
+    return 0;
+}
+</code></pre>
+<p>这题还有一个坑点就是若一场婚礼的结束时间与下一场婚礼的开始时间是一样的的话，我们认为这不冲突。为了这个WA了一次。。。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> poj </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-SAT </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[2-sat总结]]></title>
+      <url>/2017/10/10/2-sat%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
+<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：</p>
+<pre><code>若A为真，则B必为真
+若A为真，则B必不为真
+若A为假，则B必为假
+若A为假，则B必为真
+</code></pre><p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
+<p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
+<p>然后对于上述4种限制，我们可以转换并连边为</p>
+<pre><code>若选A，则必选B  (从A到B连边)
+若选A，则必选B* (从A到B*连边)
+若选A*，则必选B*(从A*到B*连边)
+若选A*，则必选B (从A*到B连边)
+</code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
+<p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
+<p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
+<p>对于要求输出一组解的情况，一般的方法是对已缩完点的图建立反图，对反图进行拓扑排序然后染色，将出度为0的点染成红色，并将它们的对应点以及其前驱都染成蓝色，当所有点都染色完毕后，所有红色的点就是一组解。</p>
+<p>然而还有更简便的方法：当我们用tarjan进行缩点的时候，所有强连通分量求出的顺序就是原图的逆拓扑序，由此我们省略了建立反图和拓扑排序。再者，根据2-sat的对称性，对于每一对对应点我们都选所在联通块时间戳更小的，这样对于大的那个点，其前驱必定是所在点对中时间戳大的。这样，我们只需一遍tarjan即可求出一组解。</p>
+<p>对于一些题目，要求求出字典序最小的点。对于这样的题目，我们无法缩点解决，似乎唯一可行的方案就是爆搜。。。不过poj的六道题中是没有这样的题的。</p>
+<blockquote>
+<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽）</p>
+</blockquote>
+<p>附上poj上的6到题以及我的渣题解</p>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a></p>
+<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/2017/09/21/poj3678_poj3207/">poj3207、poj3678题解</a></p>
+<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/2017/09/21/poj2723/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/2017/09/19/poj3683/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/2017/09/19/poj3648/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/2017/09/21/poj2749/">题解</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 算法 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> 2-SAT </tag>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[poj3522]]></title>
-      <url>/2017/10/09/poj3522/</url>
+      <url>/2017/10/10/poj3522/</url>
       <content type="html"><![CDATA[<p>一道对于最小生成树算法的很不错的应用。</p>
 <p>题目要求是给你一张图，求一棵树，要求其 <strong>最大边与最小边的差值</strong> 最小。</p>
 <p>考虑kruskal算法，排序之后我们枚举最小界，然后每次构建最小生成树可以得到最大边，然后不断地更新答案就好了。</p>
@@ -71,56 +245,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 最小生成树 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[2-sat总结]]></title>
-      <url>/2017/10/09/2-sat%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
-<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：</p>
-<pre><code>若A为真，则B必为真
-若A为真，则B必不为真
-若A为假，则B必为假
-若A为假，则B必为真
-</code></pre><p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
-<p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
-<p>然后对于上述4种限制，我们可以转换并连边为</p>
-<pre><code>若选A，则必选B  (从A到B连边)
-若选A，则必选B* (从A到B*连边)
-若选A*，则必选B*(从A*到B*连边)
-若选A*，则必选B (从A*到B连边)
-</code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
-<p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
-<p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
-<p>对于要求输出一组解的情况，一般的方法是对已缩完点的图建立反图，对反图进行拓扑排序然后染色，将出度为0的点染成红色，并将它们的对应点以及其前驱都染成蓝色，当所有点都染色完毕后，所有红色的点就是一组解。</p>
-<p>然而还有更简便的方法：当我们用tarjan进行缩点的时候，所有强连通分量求出的顺序就是原图的逆拓扑序，由此我们省略了建立反图和拓扑排序。再者，根据2-sat的对称性，对于每一对对应点我们都选所在联通块时间戳更小的，这样对于大的那个点，其前驱必定是所在点对中时间戳大的。这样，我们只需一遍tarjan即可求出一组解。</p>
-<p>对于一些题目，要求求出字典序最小的点。对于这样的题目，我们无法缩点解决，似乎唯一可行的方案就是爆搜。。。不过poj的六道题中是没有这样的题的。</p>
-<blockquote>
-<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽）</p>
-</blockquote>
-<p>附上poj上的6到题以及我的渣题解</p>
-<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a></p>
-<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/2017/09/21/poj3678_poj3207/">poj3207、poj3678题解</a></p>
-<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/2017/09/21/poj2723/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/2017/09/19/poj3683/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/2017/09/19/poj3648/">题解</a></p>
-<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/2017/09/21/poj2749/">题解</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> 算法 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -129,9 +254,7 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-sat </tag>
-            
-            <tag> 总结 </tag>
+            <tag> 最小生成树 </tag>
             
         </tags>
         
@@ -196,7 +319,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> bzoj </category>
             
         </categories>
         
@@ -309,7 +432,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -421,7 +544,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -667,7 +790,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -676,9 +799,7 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-sat </tag>
-            
-            <tag> poj </tag>
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -874,7 +995,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -883,9 +1004,7 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-sat </tag>
-            
-            <tag> poj </tag>
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -993,7 +1112,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -1002,9 +1121,7 @@ int main()
             
             <tag> 图论 </tag>
             
-            <tag> 2-sat </tag>
-            
-            <tag> poj </tag>
+            <tag> 2-SAT </tag>
             
         </tags>
         
@@ -1071,14 +1188,12 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> bzoj </category>
             
         </categories>
         
         
         <tags>
-            
-            <tag> bzoj </tag>
             
             <tag> 数学 </tag>
             
@@ -1196,7 +1311,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> poj </category>
             
         </categories>
         
@@ -1204,131 +1319,6 @@ int main()
         <tags>
             
             <tag> 图论 </tag>
-            
-            <tag> poj </tag>
-            
-            <tag> 2-SAT </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[poj3683(2-SAT输出方案第一题)]]></title>
-      <url>/2017/09/19/poj3683/</url>
-      <content type="html"><![CDATA[<p>昨天做这道题的时候各种错误，今天早上终于调好了。原来也刷过几道2-sat的题，不过输出方案的这是第一道。本来2-sat输出方案的传统做法是先缩点，再建反图拓扑排个序，然后再染色，将红色点输出，然而昨天查资料的时候发现，其实在tarjan求强连通的时候，每个强联通分量的求出顺序就是原图的逆拓扑序！所以我们根本就不用再拓扑排序。接着，根据对称性，若原题有解的话，根据2-sat的对称性，我们只需在两个对应点之间找所属强连通分量时间戳更小的就行了，这样得出的就一定是一组可行解。</p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">题目链接</a>。</p>
-<pre><code class="cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;stack&gt;
-using namespace std;
-int n;
-int tot,had[3000],nxt[5000000],point[5000000];
-struct wed{
-    int bg;
-    int nd;
-}p[2003];
-inline void add(int x,int y)
-{
-    tot++;
-    point[tot]=y;
-    nxt[tot]=had[x];
-    had[x]=tot;
-}
-bool vis[3000];
-int t;
-int timel;
-int dfn[3000],low[3000];
-int blng[3000];//强连通分量时间戳 
-stack&lt;int&gt;ss;
-int ans[2009];
-void tarjan(int x)
-{
-    dfn[x]=low[x]=++t;
-    vis[x]=t;
-    ss.push(x);
-    for(int i=had[x];i;i=nxt[i])
-    {
-        int to=point[i];
-        if(!dfn[to])
-        {
-            tarjan(to);
-            low[x]=min(low[x],low[to]);
-        }
-        else if(vis[to]) low[x]=min(low[x],dfn[to]);
-    }
-    if(low[x]==dfn[x])
-    {
-        timel++;
-        while(!ss.empty())
-        {
-            int y=ss.top();
-            vis[y]=0;
-            ss.pop();
-            blng[y]=timel;
-            if(y==x)break;
-        }
-    }
-}
-int main()
-{
-    cin&gt;&gt;n;
-    for(int  i=0;i&lt;n;i++)//处理读入 
-    {
-        int x1,x2,y1,y3,len;
-        char c;
-        cin&gt;&gt;x1&gt;&gt;c&gt;&gt;x2;
-        cin&gt;&gt;y1&gt;&gt;c&gt;&gt;y3&gt;&gt;len;
-        p[i&lt;&lt;1].bg=x1*60+x2;
-        p[i&lt;&lt;1].nd=p[i&lt;&lt;1].bg+len;
-        p[(i&lt;&lt;1)+1].bg=y1*60+y3-len;
-        p[(i&lt;&lt;1)+1].nd=p[(i&lt;&lt;1)+1].bg+len;
-    }
-    for(int i=0;i&lt;2*n;i++)//建图 
-        for(int j=i+1;j&lt;2*n;j++)
-            if(p[i].bg&gt;=p[j].bg&amp;&amp;p[i].bg&lt;p[j].nd)
-            {
-                add(i,j^1);
-                add(j,i^1);
-            }
-            else
-                if(p[j].bg&gt;=p[i].bg&amp;&amp;p[j].bg&lt;p[i].nd)
-                {
-                    add(j,i^1);
-                    add(i,j^1);
-                }
-    for(int i=0;i&lt;2*n;i++)//tarjan缩点 
-        if(!dfn[i])tarjan(i);
-    for(int i=0;i&lt;2*n;i+=2)//判断是否有解 
-        if(blng[i]==blng[i+1])
-        {
-            cout&lt;&lt;&quot;NO&quot;;
-            return 0;
-        }
-    for(int i=0;i&lt;2*n;i+=2)//在对应点中选取所属时间戳小的 
-        if(blng[i]&lt;blng[i+1])ans[i/2]=i;
-        else ans[i/2]=i+1;
-    cout&lt;&lt;&quot;YES\n&quot;;
-    for(int i=0;i&lt;n;i++)//处理并输出 
-        printf(&quot;%02d:%02d %02d:%02d\n&quot;,p[ans[i]].bg/60,p[ans[i]].bg%60,p[ans[i]].nd/60,p[ans[i]].nd%60);
-    return 0;
-}
-</code></pre>
-<p>这题还有一个坑点就是若一场婚礼的结束时间与下一场婚礼的开始时间是一样的的话，我们认为这不冲突。为了这个WA了一次。。。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> OJ题目 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 图论 </tag>
-            
-            <tag> poj </tag>
             
             <tag> 2-SAT </tag>
             
@@ -1427,7 +1417,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> hdu </category>
             
         </categories>
         
@@ -1437,8 +1427,6 @@ int main()
             <tag> DP </tag>
             
             <tag> 期望DP </tag>
-            
-            <tag> HDU </tag>
             
         </tags>
         
@@ -1487,7 +1475,7 @@ int main()
       
         <categories>
             
-            <category> OJ题目 </category>
+            <category> hdu </category>
             
         </categories>
         
@@ -1497,8 +1485,6 @@ int main()
             <tag> DP </tag>
             
             <tag> 期望DP </tag>
-            
-            <tag> HDU </tag>
             
         </tags>
         
@@ -1553,6 +1539,12 @@ int main()
   
     
     <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>/about_me/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1579,20 +1571,14 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
