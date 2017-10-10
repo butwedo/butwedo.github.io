@@ -3,6 +3,51 @@
   
     
     <entry>
+      <title><![CDATA[Hello, world.]]></title>
+      <url>/2017/10/10/Hello/</url>
+      <content type="html"><![CDATA[<p>所以，从前天就一直开始搞的这个博客，到今天终于是差不多整好了。真是长舒了一口气。虽然之间发生了很多鬼事，不过谢天谢地到最后所有事都在掌控之中。</p>
+<h3 id="非常感谢的一些人："><a href="#非常感谢的一些人：" class="headerlink" title="非常感谢的一些人："></a>非常感谢的一些人：</h3><ul>
+<li><a href="https://yzyun.pw" target="_blank" rel="external">yzyun</a> dalao,是比我先整blog的人，也是因为他的影响我才开始有了开博客的念头，在搭建博客的过程中包括关于Hexo模板的种种问题以及域名的购置及解析都帮了我非常非常大的忙。</li>
+<li><a href="https://ytoworld.tk" target="_blank" rel="external">yto</a>  貌似是最先有博客的dalao，对一些系统和github的知识非常熟悉并且帮助人时非常亲切<del>大概是因为他是双性恋的原因吧</del></li>
+<li>同机房的czd帮我用支付宝付了域名的费用，非常感谢并再一次使我认识到了财政独立的重要性。</li>
+<li>HYS dalao，不折不扣的真正巨神，在出题的百忙之余帮没带手机的我用自己的手机完成了一些账号的短信验证。非常感谢他的帮忙并日常膜拜</li>
+<li><a href="http://go.kieran.top" target="_blank" rel="external">kieran</a> 并不认识这位大佬，但博客第一个主题是用的这位大牛的<a href="https://github.com/SuperKieran/TKL" target="_blank" rel="external">TKL</a>,并且背景的两只小猫也是TKL原来的背景。虽然因为dalao的使用文档是全英的，蒟蒻根本看不懂，但是页面非常漂亮！如果有哪位也有意想要搭个类似的博客的话，可以考虑一下这位大佬的主题！</li>
+<li><a href="https://material.viosey.com/" target="_blank" rel="external">Viosey</a> 这位大佬设计了我现在使用的主题，各方面都非常棒！并且提供了详细的中文说明文档，非常照顾我这种小白！强烈安利！<br>还有这个博客的一些图片，以及搭建过程中一些小问题的解决，都是各位网友前辈留下来的，在这里也要说声谢谢。</li>
+</ul>
+<hr>
+<p>然后，按照惯例:</p>
+<p><em>Hello, world.</em></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout&lt;&lt;&quot;Hello, world.&quot;;
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p><em>They say no one cares, no one sees, no one can get though</em></p>
+<p><em>However, as I know I’m not the only one,I say:</em></p>
+<p><em>“Well,but we do.</em></p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> 新世界 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 新世界 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[luogu3545(POI)]]></title>
       <url>/2017/10/10/luogu3545-POI/</url>
       <content type="html"><![CDATA[<p>POI中的水题，我们尽可能多的去满足顾客，直到当前顾客不能被满足，我们就找到之前需求最大的的顾客，然后判断一下与当前顾客谁的需求更大一些，若当前顾客需求大则跳过他，否则踢掉之前需求最大的顾客，来满足当前顾客。这样答案不会变得更差，而且我们还有了更多的货物更有可能满足后来的人。“找到之前需求最大的顾客”我们可以用堆来实现。整个过程时间复杂度为O(nlogn).</p>
@@ -82,9 +127,9 @@ int main()
         
         <tags>
             
-            <tag> POI </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> POI </tag>
             
         </tags>
         
@@ -1740,59 +1785,8 @@ int main()
         
     </entry>
     
-    <entry>
-      <title><![CDATA[Hello, world.]]></title>
-      <url>/2017/09/13/Hello/</url>
-      <content type="html"><![CDATA[<p>所以，从前天就一直开始搞的这个博客，到今天终于是差不多整好了。真是长舒了一口气。虽然之间发生了很多鬼事，不过谢天谢地到最后所有事都在掌控之中。</p>
-<h3 id="非常感谢的一些人："><a href="#非常感谢的一些人：" class="headerlink" title="非常感谢的一些人："></a>非常感谢的一些人：</h3><ul>
-<li><a href="https://yzyun.pw" target="_blank" rel="external">yzyun</a> dalao,是比我先整blog的人，也是因为他的影响我才开始有了开博客的念头，在搭建博客的过程中包括关于Hexo模板的种种问题以及域名的购置及解析都帮了我非常非常大的忙。</li>
-<li><a href="https://ytoworld.tk" target="_blank" rel="external">yto</a>  貌似是最先有博客的dalao，对一些系统和github的知识非常熟悉并且帮助人时非常亲切<del>大概是因为他是双性恋的原因吧</del></li>
-<li>同机房的czd帮我用支付宝付了域名的费用，非常感谢并再一次使我认识到了财政独立的重要性。</li>
-<li>HYS dalao，不折不扣的真正巨神，在出题的百忙之余帮没带手机的我用自己的手机完成了一些账号的短信验证。非常感谢他的帮忙并日常膜拜</li>
-<li><a href="http://go.kieran.top" target="_blank" rel="external">kieran</a> 并不认识这位大佬，但博客第一个主题是用的这位大牛的<a href="https://github.com/SuperKieran/TKL" target="_blank" rel="external">TKL</a>,并且背景的两只小猫也是TKL原来的背景。虽然因为dalao的使用文档是全英的，蒟蒻根本看不懂，但是页面非常漂亮！如果有哪位也有意想要搭个类似的博客的话，可以考虑一下这位大佬的主题！</li>
-<li><a href="https://material.viosey.com/" target="_blank" rel="external">Viosey</a> 这位大佬设计了我现在使用的主题，各方面都非常棒！并且提供了详细的中文说明文档，非常照顾我这种小白！强烈安利！<br>还有这个博客的一些图片，以及搭建过程中一些小问题的解决，都是各位网友前辈留下来的，在这里也要说声谢谢。</li>
-</ul>
-<hr>
-<p>然后，按照惯例:</p>
-<p><em>Hello, world.</em></p>
-<pre><code class="cpp">#include&lt;iostream&gt;
-using namespace std;
-int main()
-{
-    cout&lt;&lt;&quot;Hello, world.&quot;;
-    return 0;
-}
-</code></pre>
-<blockquote>
-<p><em>They say no one cares, no one sees, no one can get though</em></p>
-<p><em>However, as I know I’m not the only one,I say:</em></p>
-<p><em>“Well,but we do.</em></p>
-</blockquote>
-]]></content>
-      
-        <categories>
-            
-            <category> 新世界 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 新世界 </tag>
-            
-        </tags>
-        
-    </entry>
-    
   
   
-    
-    <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
-      <content type="html"></content>
-    </entry>
     
     <entry>
       <title></title>
@@ -1815,20 +1809,26 @@ int main()
     </entry>
     
     <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[gallery]]></title>
       <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
