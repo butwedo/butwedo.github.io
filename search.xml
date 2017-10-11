@@ -3,6 +3,64 @@
   
     
     <entry>
+      <title><![CDATA[luogu3512-POI]]></title>
+      <url>/2017/10/11/luogu3512-POI/</url>
+      <content type="html"><![CDATA[<p>可能我太弱了吧，这么水的题做了半天qwq。。。。</p>
+<p>关于数据范围n&lt;=3000000我们可以联想到这大概是一道O(n)做法的题，然而我也就只想到了这儿，查题解发现开两个单调队列扫过去就好了。</p>
+<p>易得这道题所求的子序列l是单增的，所以我们开两个单调队列，一个单增一个单减，分别维护l到当前的最小和最大值，并且在不合法时将l右挪。每读进一个数，我们就把它和队尾比较一下，拿单增序列为例，若当前队尾的数大于新读入的，就把队尾弹出，直到队尾小于当前值；单减则反之。这样，两个队头就记录了l到当前位置的最值。将它们做差，判断是否合法，若不合法则弹出两个队首中对应l更靠前的并更新l，得到i-l+1即为当前答案，比较更新即可。</p>
+<pre><code class="cpp">//代码参考黄学长
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+int qn[3000006];
+int qx[3000006];
+int a[3000006];
+int ns=1,ne,xs=1,xe;
+int ans;
+int main()
+{
+    int n,k;
+    scanf(&quot;%d%d&quot;,&amp;k,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;a[i]);
+    int t=1;
+    for(int i=1;i&lt;=n;i++)
+    {
+        while(ne&gt;=ns&amp;&amp;a[i]&lt;=a[qn[ne]])ne--;
+        while(xe&gt;=xs&amp;&amp;a[i]&gt;=a[qx[xe]])xe--;
+        qn[++ne]=i;
+        qx[++xe]=i;
+        while(a[qx[xs]]-a[qn[ns]]&gt;k)
+            if(qx[xs]&lt;qn[ns])t=qx[xs]+1,xs++;
+            else t=qn[ns]+1,ns++;
+        ans=max(ans,i-t+1);
+    }
+    printf(&quot;%d&quot;,ans);
+    return 0;
+}
+</code></pre>
+<p>今天才发现自己还不能分清哪儿是队首哪儿是队尾连题解都看不懂QAQ</p>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> POI </tag>
+            
+            <tag> 单调队列 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[luogu3545(POI)]]></title>
       <url>/2017/10/10/luogu3545-POI/</url>
       <content type="html"><![CDATA[<p>POI中的水题，我们尽可能多的去满足顾客，直到当前顾客不能被满足，我们就找到之前需求最大的的顾客，然后判断一下与当前顾客谁的需求更大一些，若当前顾客需求大则跳过他，否则踢掉之前需求最大的顾客，来满足当前顾客。这样答案不会变得更差，而且我们还有了更多的货物更有可能满足后来的人。“找到之前需求最大的顾客”我们可以用堆来实现。整个过程时间复杂度为O(nlogn).</p>
@@ -1789,6 +1847,30 @@ int main()
   
     
     <entry>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>/about_me/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1806,30 +1888,6 @@ int main()
 <p>也很喜欢昆虫和文学，总之喜欢的东西没一个是和OI沾边的= =（然而这样也不能抑制我对OI的热爱？）</p>
 <p>我也不知道写这个有什么用但自我介绍一下总是好的。</p>
 <embed src="//music.163.com/style/swf/widget.swf?sid=28837241&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
-      <content type="html"></content>
     </entry>
     
   
