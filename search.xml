@@ -3,6 +3,68 @@
   
     
     <entry>
+      <title><![CDATA[luogu3539-POI]]></title>
+      <url>/2017/10/12/luogu3539-POI/</url>
+      <content type="html"><![CDATA[<p>思路来源于黄学长.</p>
+<p>由于<code>f[i]*2=f[i]+f[i-1]+f[i-2]=f[i+1]+f[i-1]</code>所以可得一定存在一组解使得每个斐波那契数最多只会出现一次。我们按照这个思路来记忆化搜索。对于一个数可能由比它大的数转移而来也可能由比它小的数转移而来，且<del>感性理解</del>易证这个数一定是由大于它或小于它的第一个的斐波那契数转移而来。因此我们有转移方程f[x]=min(f[x-x1],f[x2-x])+1(其中x1为小于x的第一个斐波那契数，x2为大于x的第一个斐波那契数)。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;map&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+long long f[100];
+map&lt;long long ,int&gt; mp;
+inline void tabl()
+{
+    f[0]=1;
+    f[1]=1;
+    for(int i=2;i&lt;=90;i++)
+        f[i]=f[i-1]+f[i-2];
+}
+int n;
+long long x;
+int dp(long long x)
+{
+    if(mp[x])return mp[x];
+    int b=lower_bound(f,f+90,x)-f;
+    if(f[b]==x)return 1;
+    return mp[x]=min(dp(f[b]-x),dp(x-f[b-1]))+1;
+}
+int main()
+{
+    tabl();
+    scanf(&quot;%d&quot;,&amp;n);
+    while(n--)
+    {
+        scanf(&quot;%lld&quot;,&amp;x);
+        printf(&quot;%d\n&quot;,dp(x));
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DP </tag>
+            
+            <tag> POI </tag>
+            
+            <tag> 斐波那契 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[luogu3431-POI]]></title>
       <url>/2017/10/12/luogu3431/</url>
       <content type="html"><![CDATA[<p>第一道传说中的二维偏序！</p>
@@ -77,6 +139,8 @@ int main()
         
         
         <tags>
+            
+            <tag> POI </tag>
             
             <tag> 树状数组，DP，二维偏序 </tag>
             
@@ -1929,12 +1993,6 @@ int main()
   
     
     <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <url>/about_me/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1955,8 +2013,14 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -1967,8 +2031,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
