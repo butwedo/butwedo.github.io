@@ -3,6 +3,88 @@
   
     
     <entry>
+      <title><![CDATA[luogu3431-POI]]></title>
+      <url>/2017/10/12/luogu3431/</url>
+      <content type="html"><![CDATA[<p>第一道传说中的二维偏序！</p>
+<p>题目本身是一个很经典的模型，事实上只要把n和m的数据范围缩成1000左右，就是一个o(nm)的DP入门题。然而这道题的数据范围显然这样时间和空间都会爆炸。于是经过观察我们发现k很小，是一个可以接受的数据范围，所以我们从k入手，只考虑有人的那些点。易得当(i,j)的答案可被(x,y)更新需满足的条件为i&gt;=x且j&gt;=y。我们开一个结构体记录一下有人的点的坐标，把他们按照x排序一下，就能保证x的单增。然后我们考虑y的顺序。首先肯定是要把y离散化一下，然后我们定义f[i]表示按x排序后前i个点里选一定要选点i时的最优解，可得方程为<code>f[i]=max(f[j])+a[i](1&lt;=j&lt;=i)</code>,其中a[i]表示第i个点的人数，于是我们只要快速的求出满足y小于等于当前点中的f最大的点就行了。这里我们用树状数组来维护。</p>
+<p>事实上根本不用f数组，直接用一个变量记录即可。</p>
+<p>贴出代码：</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+long long f[1000000];
+long long z[1000000];
+long long lowbit(long long x)
+{
+    return x&amp;-x;
+}
+long long n,m,k;
+inline long long ask(long long x)
+{
+    long long r=0;
+    for(long long i=x;i&gt;0;i-=lowbit(i))
+        r=max(r,f[i]);
+    return r;
+}
+inline void add(long long x,long long v)
+{
+    for(long long i=x;i&lt;=k;i+=lowbit(i))
+        f[i]=max(f[i],v);
+}
+struct point{
+    long long x,y;
+    long long num;
+}p[1000000];
+bool cmp(point a,point b)
+{
+    if(a.x==b.x)return a.y&lt;b.y;
+    return a.x&lt;b.x;
+}
+int main()
+{
+    scanf(&quot;%lld%lld%lld&quot;,&amp;n,&amp;m,&amp;k);
+    for(long long i=1;i&lt;=k;i++)
+    {
+        scanf(&quot;%lld%lld%lld&quot;,&amp;p[i].x,&amp;p[i].y,&amp;p[i].num);
+        z[i]=p[i].y;
+    }
+    sort(z+1,z+k+1);
+    n=unique(z+1,z+1+k)-z-1;
+    for(long long i=1;i&lt;=k;i++)
+        p[i].y=lower_bound(z+1,z+1+n,p[i].y)-z;
+    sort(p+1,p+1+k,cmp);
+    long long ans=0;
+    for(long long i=1;i&lt;=k;i++)
+    {
+        long long x=ask(p[i].y)+p[i].num;
+        ans=max(ans,x);
+        add(p[i].y,x);
+    }
+    printf(&quot;%lld&quot;,ans);
+    return 0;
+}
+</code></pre>
+<p>一开始WA了好几次，发现都是n和k弄混了。。。。都换过来就A了QAQ</p>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 树状数组，DP，二维偏序 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[luogu3512-POI]]></title>
       <url>/2017/10/11/luogu3512-POI/</url>
       <content type="html"><![CDATA[<p>可能我太弱了吧，这么水的题做了半天qwq。。。。</p>
@@ -1847,6 +1929,12 @@ int main()
   
     
     <entry>
+      <title><![CDATA[gallery]]></title>
+      <url>/gallery/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <url>/about_me/index.html</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1864,12 +1952,6 @@ int main()
 <p>也很喜欢昆虫和文学，总之喜欢的东西没一个是和OI沾边的= =（然而这样也不能抑制我对OI的热爱？）</p>
 <p>我也不知道写这个有什么用但自我介绍一下总是好的。</p>
 <embed src="//music.163.com/style/swf/widget.swf?sid=28837241&type=2&auto=1&width=320&height=66" width="340" height="86" allownetworking="all">]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[gallery]]></title>
-      <url>/gallery/index.html</url>
-      <content type="html"></content>
     </entry>
     
     <entry>
