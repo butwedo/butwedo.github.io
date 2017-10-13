@@ -286,9 +286,9 @@ int main()
         
         <tags>
             
-            <tag> 贪心 </tag>
-            
             <tag> POI </tag>
+            
+            <tag> 贪心 </tag>
             
         </tags>
         
@@ -2013,8 +2013,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[friends and links]]></title>
+      <url>/links/index.html</url>
       <content type="html"></content>
     </entry>
     
@@ -2031,8 +2031,8 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[friends and links]]></title>
-      <url>/links/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
