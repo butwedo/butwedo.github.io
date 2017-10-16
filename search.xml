@@ -3,6 +3,136 @@
   
     
     <entry>
+      <title><![CDATA[luogu3452-POI]]></title>
+      <url>/2017/10/16/luogu3452-POI/</url>
+      <content type="html"><![CDATA[<p>题意：给出一个图（N个点，M条边），让你把此图分成尽可能多的集合，满足任意不在同一集合的点之间都有边相连。</p>
+<p>很明显最多的集合数就是联通块的数量，所以我们只要求出联通块的数量以及每个联通块的大小就行了。我第一个想到的做法是$n^2$建出反图，然后bfs。然后看到n的范围($2\le n \le 100\ 000$)果断放弃。然后就放着了。今天又碰到，在网上查了查题解，发现其实这道题就是个链表优化的暴力。。。。把n个点放到一个链表里，每次取表头，把不和它相连的点和它自己在链表里删掉并加进一个队列进行bfs，重复这个过程，直到链表为空，我们就得到了联通块的个数，每个联通块的大小可以在bfs时求得。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+int lst[100005],pre[100005];
+int tot,had[100005],nxt[40000006],point[4000006];
+int n,m;
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+    tot++;
+    point[tot]=x;
+    nxt[tot]=had[y];
+    had[y]=tot;
+}
+inline void del(int x)
+{
+    lst[pre[x]]=lst[x];
+    pre[lst[x]]=pre[x];
+}
+int ans=0,a[100005];
+int que[100005];
+bool vis[100005];
+int h,t;
+inline void bfs(int x)
+{
+    h=t=0;
+    que[t++]=x;
+    while(t!=h)
+    {
+        int x=que[h++];
+        a[ans]++;
+        for(int i=had[x];i;i=nxt[i])
+            vis[point[i]]=1;
+        for(int i=lst[0];i&lt;=n;i=lst[i])
+        {
+            if(vis[i])
+            {
+                vis[i]=0;
+                continue;
+            }
+            del(i);
+            que[t++]=i;
+        }
+    }
+}
+int main()
+{
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=0;i&lt;=n;i++)
+        lst[i]=i+1;
+    for(int i=1;i&lt;=n+1;i++)
+        pre[i]=i-1;
+    int x,y;
+    for(int i=1;i&lt;=m;i++)
+    {
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        add(x,y);
+    }
+    for(int i=lst[0];i&lt;=n;i=lst[0])
+    {
+        del(i);
+        ans++;
+        bfs(i);
+    }
+    sort(a+1,a+1+ans);
+    printf(&quot;%d\n&quot;,ans);
+    for(int i=1;i&lt;=ans;i++)
+        printf(&quot;%d &quot;,a[i]);
+    return 0; 
+}
+</code></pre>
+]]></content>
+      
+        <categories>
+            
+            <category> luogu </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 图论 </tag>
+            
+            <tag> POI </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数学公式测试]]></title>
+      <url>/2017/10/16/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B5%8B%E8%AF%95/</url>
+      <content type="html"><![CDATA[<p>开了这么久时间博客没怎么用过数学公式，今天试一试。</p>
+<p>用<code>$$</code>之间加行间公式，具体说来是这样$f(x)=\sum _{i=1}^x x^2$（瞎打的。。。）</p>
+<p>$$\frac{\sqrt x}{\sqrt[x] y}$$</p>
+<p>单独显示如上。</p>
+<p>再随便试一下: $\left(\frac x y\right)$</p>
+<p>参考：<a href="http://blog.csdn.net/lk7688535/article/details/52528307" target="_blank" rel="external">http://blog.csdn.net/lk7688535/article/details/52528307</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 新世界 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 新世界 </tag>
+            
+            <tag> math </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[luogu3539-POI]]></title>
       <url>/2017/10/12/luogu3539-POI/</url>
       <content type="html"><![CDATA[<p>思路来源于黄学长.</p>
@@ -286,9 +416,9 @@ int main()
         
         <tags>
             
-            <tag> POI </tag>
-            
             <tag> 贪心 </tag>
+            
+            <tag> POI </tag>
             
         </tags>
         
@@ -2025,14 +2155,14 @@ int main()
     </entry>
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>/tags/index.html</url>
+      <title><![CDATA[timeline]]></title>
+      <url>/timeline/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[timeline]]></title>
-      <url>/timeline/index.html</url>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
