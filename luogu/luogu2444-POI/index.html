@@ -592,7 +592,20 @@ int main()
 
                 <!-- Post Comments -->
                 
-                    
+				  <div class="comments" id="comments"></div>
+		<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='/js/Valine.min.js'></script>
+		<script>
+			new Valine({
+				av: AV,
+				el: '.comments',
+				verify: true,
+				notify: true,
+				app_id: 'Yc3qkPuE6JWbybQ47cYSxBLd-gzGzoHsz',
+				app_key: 'gggjWpMwJuM1mDMH0VmUCxWT',
+				placeholder: '说说你的想法？'
+			});
+		</script>
                 
             </div>
 
