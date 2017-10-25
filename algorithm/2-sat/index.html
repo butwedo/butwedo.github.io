@@ -239,8 +239,8 @@
     <meta property="og:article:tag" content="图论"> <meta property="og:article:tag" content="2-SAT"> <meta property="og:article:tag" content="总结"> 
 
     
-        <meta property="article:published_time" content="Tue Oct 10 2017 06:24:22 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Oct 10 2017 06:24:22 GMT+0800" />
+        <meta property="article:published_time" content="Wed Oct 25 2017 15:35:38 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Oct 25 2017 15:35:38 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -266,8 +266,8 @@
     "@type": "BlogPosting",
     "mainEntityOfPage": "https://butwedo.space/algorithm/2-sat/index.html",
     "headline": "2-sat总结",
-    "datePublished": "Tue Oct 10 2017 06:24:22 GMT+0800",
-    "dateModified": "Tue Oct 10 2017 06:24:22 GMT+0800",
+    "datePublished": "Wed Oct 25 2017 15:35:38 GMT+0800",
+    "dateModified": "Wed Oct 25 2017 15:35:38 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sounix",
@@ -393,7 +393,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Sounix</strong>
-        <span>10月 10, 2017</span>
+        <span>10月 25, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -515,15 +515,15 @@
 <p>然而还有更简便的方法：当我们用tarjan进行缩点的时候，所有强连通分量求出的顺序就是原图的逆拓扑序，由此我们省略了建立反图和拓扑排序。再者，根据2-sat的对称性，对于每一对对应点我们都选所在联通块时间戳更小的，这样对于大的那个点，其前驱必定是所在点对中时间戳大的。这样，我们只需一遍tarjan即可求出一组解。</p>
 <p>对于一些题目，要求求出字典序最小的点。对于这样的题目，我们无法缩点解决，似乎唯一可行的方案就是爆搜。。。不过poj的六道题中是没有这样的题的。</p>
 <blockquote>
-<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽）</p>
+<p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽） <del>反正我是看不懂就是了</del></p>
 </blockquote>
 <p>附上poj上的6到题以及我的渣题解</p>
-<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a></p>
-<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/2017/09/21/poj3678_poj3207/">poj3207、poj3678题解</a></p>
-<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/2017/09/21/poj2723/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/2017/09/19/poj3683/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/2017/09/19/poj3648/">题解</a></p>
-<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/2017/09/21/poj2749/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a>————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/poj/poj2723/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/poj/poj3853/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/poj/poj3648/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/poj/poj2749/">题解</a></p>
 
         
     
@@ -557,21 +557,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/poj/poj3853/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/poj/poj3522/" id="post_nav-older" class="next-content">
+        <a href="/luogu/luogu3452-POI/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
