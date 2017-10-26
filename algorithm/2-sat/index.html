@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png?v=5.1.3">
 
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
@@ -62,7 +62,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+  <link rel="mask-icon" href="/images/favicon-32x32-next.png?v=5.1.3" color="#222">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式： 若A为真，则B必为真 若A为真，则B必不为真 若A为假，则B必为假 若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta name="description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
 <meta name="keywords" content="图论,2-SAT,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2-sat总结">
 <meta property="og:url" content="https://butwedo.space/algorithm/2-sat/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式： 若A为真，则B必为真 若A为真，则B必不为真 若A为假，则B必为假 若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta property="og:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-25T07:35:38.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2-sat总结">
-<meta name="twitter:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式： 若A为真，则B必为真 若A为真，则B必不为真 若A为假，则B必为假 若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta name="twitter:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
 
 
 
@@ -182,9 +182,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/首页" rel="section">
+          <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -192,9 +192,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about me" rel="section">
+          <a href="/about_me" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />
             
             关于
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -212,9 +212,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/分类" rel="section">
+          <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
             
             分类
           </a>
@@ -232,9 +232,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -268,7 +302,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sounix">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/touxiang.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -334,6 +368,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -353,19 +392,11 @@
 
       
         <p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
-<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：</p>
-<pre><code>若A为真，则B必为真
-若A为真，则B必不为真
-若A为假，则B必为假
-若A为假，则B必为真
-</code></pre><p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
+<p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">若A为真，则B必为真</div><div class="line">若A为真，则B必不为真</div><div class="line">若A为假，则B必为假</div><div class="line">若A为假，则B必为真</div></pre></td></tr></table></figure></p>
+<p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
 <p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>
-<p>然后对于上述4种限制，我们可以转换并连边为</p>
-<pre><code>若选A，则必选B  (从A到B连边)
-若选A，则必选B* (从A到B*连边)
-若选A*，则必选B*(从A*到B*连边)
-若选A*，则必选B (从A*到B连边)
-</code></pre><p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
+<p>然后对于上述4种限制，我们可以转换并连边为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">若选A，则必选B  (从A到B连边)</div><div class="line">若选A，则必选B* (从A到B*连边)</div><div class="line">若选A*，则必选B*(从A*到B*连边)</div><div class="line">若选A*，则必选B (从A*到B连边)</div></pre></td></tr></table></figure></p>
+<p>同时需要注意到，由于每个变量只可能同时有一个状态（即2-sat的对称性），当我们连了一条A到B’的边时，我们还必须连一条B到A’的边。因为选A就必须选B，若选了B’再选A的话我们还要选B，而B和B’是无法同时选的。其他的连边类似。</p>
 <p>特殊的，在某种情况下我们会遇到必须选A的情景。这时候我们可以连一条由A’到A的边，限制住必须选A。</p>
 <p>将边都连完后，我们就得到了一张有向图，这张图中可能一些环，因此我们需要缩点。我们用tarjan求出所有的强连通分量，易得在同一个强连通分量中的点要么同时都选，要么同时都不选。因此我们只要看一下有没有对应点存在于同一个强连通分量中即可判断是否有解（因为每对对应点都必须选且只能选一个）。</p>
 <p>对于要求输出一组解的情况，一般的方法是对已缩完点的图建立反图，对反图进行拓扑排序然后染色，将出度为0的点染成红色，并将它们的对应点以及其前驱都染成蓝色，当所有点都染色完毕后，所有红色的点就是一组解。</p>
@@ -375,12 +406,12 @@
 <p>PS:对于2-sat的一些更专业的介绍和对称性的证明可以参考《由对称性解2-SAT问 题》（伍昱）和《2-SAT解法浅析》（赵爽） <del>反正我是看不懂就是了</del></p>
 </blockquote>
 <p>附上poj上的6到题以及我的渣题解</p>
-<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a>————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
-<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>———— <a href="https://butwedo.space/poj/poj2723/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>———— <a href="https://butwedo.space/poj/poj3853/">题解</a></p>
-<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>————  <a href="https://butwedo.space/poj/poj3648/">题解</a></p>
-<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>———— <a href="https://butwedo.space/poj/poj2749/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">poj3207</a>——————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3678" target="_blank" rel="external">poj3678</a>——————<a href="https://butwedo.space/poj/poj3678_poj3207/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2723" target="_blank" rel="external">poj2723</a>—————— <a href="https://butwedo.space/poj/poj2723/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3683" target="_blank" rel="external">poj3683</a>—————— <a href="https://butwedo.space/poj/poj3853/">题解</a></p>
+<p><a href="http://poj.org/problem?id=3648" target="_blank" rel="external">poj3648</a>——————  <a href="https://butwedo.space/poj/poj3648/">题解</a></p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">poj2749</a>—————— <a href="https://butwedo.space/poj/poj2749/">题解</a></p>
 
       
     </div>
@@ -453,6 +484,10 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
 
 
 
@@ -480,6 +515,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.png"
+                alt="Sounix" />
+            
               <p class="site-author-name" itemprop="name">Sounix</p>
               <p class="site-description motion-element" itemprop="description">风虽大，都绕过我灵魂。</p>
           </div>
@@ -501,10 +540,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -512,10 +551,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -525,12 +564,37 @@
 
           <div class="links-of-author motion-element">
             
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:sounkix@outlook.com" target="_blank" title="email">
+                    email</a>
+                </span>
+              
+            
           </div>
 
           
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.yosuga.me" title="yzyun" target="_blank">yzyun</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ytoworld.tk" title="ytoworld" target="_blank">ytoworld</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -576,6 +640,20 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">
+      访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -617,6 +695,8 @@
   
 
 
+  
+
 
 
 
@@ -657,6 +737,11 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
 
   
 
@@ -679,7 +764,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
@@ -714,10 +799,342 @@
 
 
 
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        app_id: 'Yc3qkPuE6JWbybQ47cYSxBLd-gzGzoHsz',
+        app_key: 'gggjWpMwJuM1mDMH0VmUCxWT',
+        placeholder: '说说你的想法？'
+    });
+  </script>
+
 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
 
 
@@ -730,6 +1147,8 @@
   
 
   
+  
+
 
   
 
