@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="图论,2-SAT," />
+  <meta name="keywords" content="新世界," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一天之内完成两道2-sat，新方法就是霸气~">
-<meta name="keywords" content="图论,2-SAT">
+<meta name="description" content="纠结了半天，终于今天下午决定放弃hexo的material主题，改用next. 倒不是说material不好，只是不合适而已。适合material是多图流，最好是每篇文章都能找到合适的图的网站，而这个博客我本来打算是以算法和水题历程为主来着，一般不会去找配图，更别说合适的了。。。。这种情况下，只有使用随机缩略图，于是我收集了两百多张bing美图，在里头挑了一张星云的做背景，但事实证明风格迥异的缩略">
+<meta name="keywords" content="新世界">
 <meta property="og:type" content="article">
-<meta property="og:title" content="poj3648">
-<meta property="og:url" content="https://butwedo.space/poj/poj3648/index.html">
+<meta property="og:title" content="换主题啦">
+<meta property="og:url" content="https://butwedo.space/new-world/lmaterial/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="一天之内完成两道2-sat，新方法就是霸气~">
+<meta property="og:description" content="纠结了半天，终于今天下午决定放弃hexo的material主题，改用next. 倒不是说material不好，只是不合适而已。适合material是多图流，最好是每篇文章都能找到合适的图的网站，而这个博客我本来打算是以算法和水题历程为主来着，一般不会去找配图，更别说合适的了。。。。这种情况下，只有使用随机缩略图，于是我收集了两百多张bing美图，在里头挑了一张星云的做背景，但事实证明风格迥异的缩略">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-26T09:14:08.664Z">
+<meta property="og:updated_time" content="2017-10-26T13:02:47.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="poj3648">
-<meta name="twitter:description" content="一天之内完成两道2-sat，新方法就是霸气~">
+<meta name="twitter:title" content="换主题啦">
+<meta name="twitter:description" content="纠结了半天，终于今天下午决定放弃hexo的material主题，改用next. 倒不是说material不好，只是不合适而已。适合material是多图流，最好是每篇文章都能找到合适的图的网站，而这个博客我本来打算是以算法和水题历程为主来着，一般不会去找配图，更别说合适的了。。。。这种情况下，只有使用随机缩略图，于是我收集了两百多张bing美图，在里头挑了一张星云的做背景，但事实证明风格迥异的缩略">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://butwedo.space/poj/poj3648/"/>
+  <link rel="canonical" href="https://butwedo.space/new-world/lmaterial/"/>
 
 
 
 
 
-  <title>poj3648 | Hey, there</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>换主题啦 | Hey, there</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj3648/">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/new-world/lmaterial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sounix">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">poj3648</h1>
+          <h1 class="post-title" itemprop="name headline">换主题啦</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T16:47:39+08:00">
-                2017-09-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T20:43:52+08:00">
+                2017-10-26
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/poj/" itemprop="url" rel="index">
-                    <span itemprop="name">poj</span>
+                  <a href="/categories/new-world/" itemprop="url" rel="index">
+                    <span itemprop="name">新世界</span>
                   </a>
                 </span>
 
@@ -391,11 +391,9 @@
       
 
       
-        <p>一天之内完成两道2-sat，新方法就是霸气~</p>
-<a id="more"></a>
-<p>这道题的题目大意是一对新人要举行婚礼，邀请了n对夫妇在宴席上有这么些奇奇怪怪的风俗：一对夫妇不能做同一侧否则会有厄运；除此之外还有一些有暧昧关系的人，这些人不能同时被新娘看到，否则也会有厄运。问是否有解，若有的话输出任意一组。</p>
-<p>这是<a href="http://poj.org/problem?id=3648" target="_blank" rel="external">题目链接</a>。</p>
-<p>以坐在新郎一侧的人是谁为对应点建图，记录新郎一侧的解，输出的时候反过来。不直接记录新娘一侧的点是因为据discuss说新娘也可能有暧昧关系。。。。。。然后还有一点就是要连一条新娘到新郎的边，表示新郎一定要选（因为是求新郎一侧的解）。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt; </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="keyword">int</span> had[<span class="number">200</span>],nxt[<span class="number">40004</span>],point[<span class="number">40004</span>];</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	tot++;</div><div class="line">	point[tot]=y;</div><div class="line">	nxt[tot]=had[x];</div><div class="line">	had[x]=tot;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> t,timel;</div><div class="line"><span class="keyword">int</span> dfn[<span class="number">200</span>],low[<span class="number">200</span>],blng[<span class="number">200</span>];</div><div class="line"><span class="keyword">bool</span> vis[<span class="number">200</span>];</div><div class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;ss;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	dfn[x]=low[x]=t++;</div><div class="line">	ss.push(x);</div><div class="line">	vis[x]=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=had[x];i;i=nxt[i])</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span> to=point[i];</div><div class="line">		<span class="keyword">if</span>(!dfn[to])</div><div class="line">		&#123;</div><div class="line">			tarjan(to);</div><div class="line">			low[x]=min(low[x],low[to]);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		<span class="keyword">if</span>(vis[to])low[x]=min(low[x],dfn[to]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(dfn[x]==low[x])</div><div class="line">	&#123;</div><div class="line">		timel++;</div><div class="line">		<span class="keyword">while</span>(!ss.empty())</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> y=ss.top();</div><div class="line">			blng[y]=timel;</div><div class="line">			vis[y]=<span class="number">0</span>;</div><div class="line">			ss.pop();</div><div class="line">			<span class="keyword">if</span>(y==x)<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&amp;&amp;n)</div><div class="line">	&#123;	</div><div class="line">		tot=<span class="number">0</span>;</div><div class="line">		t=<span class="number">0</span>;</div><div class="line">		timel=<span class="number">0</span>;</div><div class="line">		<span class="keyword">bool</span> f=<span class="number">0</span>;</div><div class="line">		<span class="built_in">memset</span>(dfn,<span class="number">0</span>,<span class="keyword">sizeof</span>(dfn));</div><div class="line">		<span class="built_in">memset</span>(low,<span class="number">0</span>,<span class="keyword">sizeof</span>(low));</div><div class="line">		<span class="built_in">memset</span>(had,<span class="number">0</span>,<span class="keyword">sizeof</span>(had));</div><div class="line">		<span class="built_in">memset</span>(nxt,<span class="number">0</span>,<span class="keyword">sizeof</span>(nxt));</div><div class="line">		<span class="built_in">memset</span>(blng,<span class="number">0</span>,<span class="keyword">sizeof</span>(blng));	</div><div class="line">		<span class="built_in">memset</span>(point,<span class="number">0</span>,<span class="keyword">sizeof</span>(point));</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> w,h;</div><div class="line">			<span class="keyword">char</span> w1,h1;</div><div class="line">			<span class="built_in">cin</span>&gt;&gt;w&gt;&gt;w1;</div><div class="line">			<span class="built_in">cin</span>&gt;&gt;h&gt;&gt;h1;</div><div class="line">			w&lt;&lt;=<span class="number">1</span>;</div><div class="line">			h&lt;&lt;=<span class="number">1</span>;</div><div class="line">			<span class="keyword">if</span>(w1==<span class="string">'h'</span>)w++;</div><div class="line">			<span class="keyword">if</span>(h1==<span class="string">'h'</span>)h++;</div><div class="line">			add(w,h^<span class="number">1</span>);</div><div class="line">			add(h,w^<span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">		add(<span class="number">0</span>,<span class="number">1</span>); </div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*n;i++)</div><div class="line">			<span class="keyword">if</span>(!dfn[i])tarjan(i);</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>*n;i+=<span class="number">2</span>)</div><div class="line">			<span class="keyword">if</span>(blng[i]==blng[i+<span class="number">1</span>])</div><div class="line">			&#123;</div><div class="line">				f=<span class="number">1</span>;</div><div class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="string">"bad luck\n"</span>;</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="keyword">if</span>(f)<span class="keyword">continue</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;<span class="number">2</span>*n;i+=<span class="number">2</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">cout</span>&lt;&lt;(i&gt;&gt;<span class="number">1</span>);</div><div class="line">			<span class="keyword">if</span>(blng[i]&lt;blng[i+<span class="number">1</span>])<span class="built_in">cout</span>&lt;&lt;<span class="string">"h "</span>;</div><div class="line">			<span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"w "</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>纠结了半天，终于今天下午决定放弃hexo的material主题，改用next.</p>
+<p>倒不是说material不好，只是不合适而已。适合material是多图流，最好是每篇文章都能找到合适的图的网站，而这个博客我本来打算是以算法和水题历程为主来着，一般不会去找配图，更别说合适的了。。。。这种情况下，只有使用随机缩略图，于是我收集了两百多张bing美图，在里头挑了一张星云的做背景，但事实证明风格迥异的缩略图和背景放在一起简！直！是！灾！难！本来还觉得能看，后来越看越忍不了，终于决定换个主题。</p>
+<p>至于为什么选用next嘛。。。在一开始建博客的时候，yzyun大佬就给我安利的这个主题，当时没怎么看，后来发现找资料的时候，许多大牛使用的都是这个主题，简洁，动画细腻，从骨子里透露出一种技术的气息，还自带动画背景效果，除了没有很多地方放图以外几乎没有缺点，而且我也没有那么多图？于是乎种种原因使然，我决定再次换个主题。所幸next的中文说明很全，加上本身已经有了经验，这次主题的更换并没有什么大锅，很顺利地完成了。接下来可能自己会再搞一搞，但应该不会换主题了吧。。。。</p>
 
       
     </div>
@@ -413,9 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/图论/" rel="tag"># 图论</a>
-          
-            <a href="/tags/2-SAT/" rel="tag"># 2-SAT</a>
+            <a href="/tags/新世界/" rel="tag"># 新世界</a>
           
         </div>
       
@@ -428,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/oi-nweb/afanruv/" rel="next" title="一个有点意思的证明">
-                <i class="fa fa-chevron-left"></i> 一个有点意思的证明
+              <a href="/algorithm/2-sat/" rel="next" title="2-sat总结">
+                <i class="fa fa-chevron-left"></i> 2-sat总结
               </a>
             
           </div>
@@ -437,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/bzoj/bzoj1013/" rel="prev" title="bzoj1013">
-                bzoj1013 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
