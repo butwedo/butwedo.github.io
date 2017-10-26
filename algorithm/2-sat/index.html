@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta name="description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。">
 <meta name="keywords" content="图论,2-SAT,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2-sat总结">
 <meta property="og:url" content="https://butwedo.space/algorithm/2-sat/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta property="og:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-25T07:35:38.416Z">
+<meta property="og:updated_time" content="2017-10-26T09:15:08.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2-sat总结">
-<meta name="twitter:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。 2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：1234若A为真，则B必为真若A为真，则B必不为真若A为假，则B必为假若A为假，则B必为真 一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。 一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变">
+<meta name="twitter:description" content="到今天总算是刷完了poj的6道2-sat，在这里做个纪念。">
 
 
 
@@ -392,6 +392,7 @@
 
       
         <p>到今天总算是刷完了poj的6道2-sat，在这里做个纪念。</p>
+<a id="more"></a>
 <p>2-sat的本质就是给你n个布尔变量和m个限制，限制一共有四种格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">若A为真，则B必为真</div><div class="line">若A为真，则B必不为真</div><div class="line">若A为假，则B必为假</div><div class="line">若A为假，则B必为真</div></pre></td></tr></table></figure></p>
 <p>一般要求求出是否可同时满足这m个限制，或是求出一组同时满足这些限制的解。</p>
 <p>一般的解法是，对于每个布尔变量ai，我们把它拆成两个点ai和ai’，分别代表为真和为假的状态。于是原题就变成了在2n个点中选取n个点。</p>

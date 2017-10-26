@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。 并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&amp;lt;=b的开始时间将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。 还get到了一个scanf的新用">
+<meta name="description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。">
 <meta name="keywords" content="图论,二分图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="poj2060">
 <meta property="og:url" content="https://butwedo.space/poj/poj2060/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。 并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&amp;lt;=b的开始时间将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。 还get到了一个scanf的新用">
+<meta property="og:description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-10T02:58:08.470Z">
+<meta property="og:updated_time" content="2017-10-26T09:14:32.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="poj2060">
-<meta name="twitter:description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。 并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&amp;lt;=b的开始时间将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。 还get到了一个scanf的新用">
+<meta name="twitter:description" content="有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。">
 
 
 
@@ -392,6 +392,7 @@
 
       
         <p>有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。</p>
+<a id="more"></a>
 <p>并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&lt;=b的开始时间<br>将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。</p>
 <p>还get到了一个scanf的新用法：<code>scanf(&quot;%d:%d&quot;,&amp;a,&amp;b)</code>可以直接跳过去中间的’:’直接读入b，当时用的getchar还RE了几遍，用这个就AC了QAQ</p>
 <p>附上题目链接：<a href="http://poj.org/problem?id=2060" target="_blank" rel="external">poj2060</a></p>

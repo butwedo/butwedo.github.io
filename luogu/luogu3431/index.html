@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="第一道传说中的二维偏序！ 题目本身是一个很经典的模型，事实上只要把n和m的数据范围缩成1000左右，就是一个o(nm)的DP入门题。然而这道题的数据范围显然这样时间和空间都会爆炸。于是经过观察我们发现k很小，是一个可以接受的数据范围，所以我们从k入手，只考虑有人的那些点。易得当(i,j)的答案可被(x,y)更新需满足的条件为i&amp;gt;=x且j&amp;gt;=y。我们开一个结构体记录一下有人的点的坐标，把">
+<meta name="description" content="第一道传说中的二维偏序！">
 <meta name="keywords" content="DP,POI,树状数组,二维偏序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="luogu3431-POI">
 <meta property="og:url" content="https://butwedo.space/luogu/luogu3431/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="第一道传说中的二维偏序！ 题目本身是一个很经典的模型，事实上只要把n和m的数据范围缩成1000左右，就是一个o(nm)的DP入门题。然而这道题的数据范围显然这样时间和空间都会爆炸。于是经过观察我们发现k很小，是一个可以接受的数据范围，所以我们从k入手，只考虑有人的那些点。易得当(i,j)的答案可被(x,y)更新需满足的条件为i&amp;gt;=x且j&amp;gt;=y。我们开一个结构体记录一下有人的点的坐标，把">
+<meta property="og:description" content="第一道传说中的二维偏序！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-19T02:45:57.399Z">
+<meta property="og:updated_time" content="2017-10-26T09:19:14.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="luogu3431-POI">
-<meta name="twitter:description" content="第一道传说中的二维偏序！ 题目本身是一个很经典的模型，事实上只要把n和m的数据范围缩成1000左右，就是一个o(nm)的DP入门题。然而这道题的数据范围显然这样时间和空间都会爆炸。于是经过观察我们发现k很小，是一个可以接受的数据范围，所以我们从k入手，只考虑有人的那些点。易得当(i,j)的答案可被(x,y)更新需满足的条件为i&amp;gt;=x且j&amp;gt;=y。我们开一个结构体记录一下有人的点的坐标，把">
+<meta name="twitter:description" content="第一道传说中的二维偏序！">
 
 
 
@@ -392,6 +392,7 @@
 
       
         <p>第一道传说中的二维偏序！</p>
+<a id="more"></a>
 <p>题目本身是一个很经典的模型，事实上只要把n和m的数据范围缩成1000左右，就是一个o(nm)的DP入门题。然而这道题的数据范围显然这样时间和空间都会爆炸。于是经过观察我们发现k很小，是一个可以接受的数据范围，所以我们从k入手，只考虑有人的那些点。易得当(i,j)的答案可被(x,y)更新需满足的条件为i&gt;=x且j&gt;=y。我们开一个结构体记录一下有人的点的坐标，把他们按照x排序一下，就能保证x的单增。然后我们考虑y的顺序。首先肯定是要把y离散化一下，然后我们定义f[i]表示按x排序后前i个点里选一定要选点i时的最优解，可得方程为<code>f[i]=max(f[j])+a[i](1&lt;=j&lt;=i)</code>,其中a[i]表示第i个点的人数，于是我们只要快速的求出满足y小于等于当前点中的f最大的点就行了。这里我们用树状数组来维护。</p>
 <p>事实上根本不用f数组，直接用一个变量记录即可。</p>
 <p>贴出代码：</p>
