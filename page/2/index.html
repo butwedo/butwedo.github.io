@@ -1,1370 +1,2905 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.0 -->
-    <script>
-        window.materialVersion = "1.5.0"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1'
-        ]
-    </script>
-
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
 
 
 
-    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Title -->
-    
-    <title>
-        
-        Hey, there
-    </title>
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="theme-color" content="#0091EA">
-    <meta name="author" content="Sounix">
-    <meta name="description" itemprop="description" content="If we all lie in the dark">
-    <meta name="keywords" content="">
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/fav.png">
-    <link rel="icon" sizes="192x192" href="/img/fav.png">
-    <link rel="apple-touch-icon" href="/img/fav.png">
-
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Hey, there">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-            
-        
-
-    
-
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
-
-  a {
-    color: #212121;
-  }
-
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0091EA !important;
-  }
-
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0091EA !important;
-  }
-
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0091EA !important;
-  }
-
-  .toTop {
-    background: #757575 !important;
-  }
-
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
-
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
-
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
-
-  .post-toc a:hover {
-    color: #212121;
-    text-decoration: underline;
-  }
-
-</style>
 
 
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-image: url(/img/trim_.jpg);
-      }
-    </style>
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
 
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icon -->
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
 
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
-    
 
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://butwedo.space">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hey, there">
-    <meta property="og:image" content="https://butwedo.space/img/fav.png" />
-    <meta property="og:description" content="If we all lie in the dark">
-    
-
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Hey, there">
-    <meta name="twitter:description" content="If we all lie in the dark">
-    <meta name="twitter:image" content="https://butwedo.space/img/fav.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://butwedo.space" />
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="https://butwedo.space/page/2/index.html" />
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-    
 
-    <!-- Analytics -->
-    
-    
-    
 
-    <!-- Custom Head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="风虽大，都绕过我灵魂。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hey, there">
+<meta property="og:url" content="https://butwedo.space/page/2/index.html">
+<meta property="og:site_name" content="Hey, there">
+<meta property="og:description" content="风虽大，都绕过我灵魂。">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hey, there">
+<meta name="twitter:description" content="风虽大，都绕过我灵魂。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://butwedo.space/page/2/"/>
+
+
+
+
+
+  <title>Hey, there</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  
+  
     
-        <body id="scheme-Paradox" class="lazy">
-            <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
+  
 
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-                        <!-- Hamburger Button -->
-                        <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
-                        </button>
-                    
-
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/bzoj/bzoj1034/">bzoj1034</a></p>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hey, there</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            应该是改编自USACO的田忌赛马？最好的情况好处理，直接套用田忌赛马思想，排序后从小的开始比较，可以比过就加分，不行的话再看最大的能不能比过，能就加...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/bzoj/bzoj1034/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>10月 09, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/bzoj/">bzoj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj2060/">poj2060</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。
-并不是很难，就是题...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj2060/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>10月 08, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj2226/">poj2226</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj2226/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>10月 08, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj3678_poj3207/">poj3678/poj3207</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            两道入门的2-sat，只要判定是否有解即可。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj3678_poj3207/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 21, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj2749/">poj2749</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            poj六道2-sat中的最后一道。事实上也算比较基础的，不用输出方案，只是建图的时候要多注意一些。
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj2749/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 21, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj2723/">poj2723</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            一道很基础的2-sat，题目链接戳
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj2723/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 21, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/bzoj/bzoj1013/">bzoj1013</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            本来是打算这两天一口气刷完poj的6到2-sat的，但昨天的模拟赛被一道题高斯消元直接虐了3个半小时没调出来，后来发现自己的高斯消元的板子就是错的=...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/bzoj/bzoj1013/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 20, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/bzoj/">bzoj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/poj/poj3648/">poj3648</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            一天之内完成两道2-sat，新方法就是霸气~
-这道题的题目大意是一对新人要举行婚礼，邀请了n对夫妇在宴席上有这么些奇奇怪怪的风俗：一对...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/poj/poj3648/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 19, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/poj/">poj</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/oi-nweb/afanruv/">一个有点意思的证明</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            昨天二师兄突然来这边机房，然后又突然就没头没脑的提出了这个问题：
-
-将一个完全图的所有边任意指定方向（所谓竞赛...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/oi-nweb/afanruv/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 15, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/oi-nweb/">线下OI</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/hdu/HDU4405/">又是一道坑题HDU4405</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            最近打算刷几道概率DP，然而就这么状况频出。。。
-丢个链接：
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/hdu/HDU4405/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/touxiang.png" width="44px" height="44px" alt="Sounix's avatar">
-            </div>
-            <div>
-                <strong>Sounix</strong>
-                <span>9月 15, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/hdu/">hdu</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 257 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
-</div>
-
-
-                    
-                        <!-- Overlay For Active Sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
-    <div id="sidebar-main">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
-    <!-- Top bar -->
-    <div class="top-bar"></div>
-
-    <!-- Sidebar toggle button -->
-    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
-        <i class="material-icons">clear_all</i>
-        <span class="mdl-button__ripple-container">
-            <span class="mdl-ripple">
-            </span>
-        </span>
+      
+        <p class="site-subtitle">Those who see.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
     </button>
-
-    <!-- Sidebar Avatar -->
-    <div class="sidebar-image">
-        <img src="/img/touxiang.png" alt="Sounix's avatar">
-    </div>
-
-    <!-- Sidebar Email -->
-    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        email me
-        <b class="caret"></b>
-    </a>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
 
-        <!-- Sidebar Navigation  -->
-        <ul class="nav sidebar-nav">
-    <!-- User dropdown  -->
-    <li class="dropdown">
-        <ul id="settings-dropdown" class="dropdown-menu">
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
             
-                <li>
-                    <a href="mailto:sounkix@outlook.com" target="_blank" title="Email Me">
-                        
-                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
-                        
-                        Email Me
-                    </a>
-                </li>
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-        </ul>
-    </li>
-
-    <!-- Homepage -->
-    
-        <li id="sidebar-first-li">
-            <a href="/">
-                
-                    <i class="material-icons sidebar-material-icons">home</i>
-                
-                Home
-            </a>
+            首页
+          </a>
         </li>
+      
         
-    
-
-    <!-- Archives  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">inbox</i>
-                
-                    归档
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-            <li>
-                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">9</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Categories  -->
-    
-        <li class="dropdown">
-            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
-                
-                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
-                
-                分类
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                <a class="sidebar_archives-link" href="/categories/bzoj/">bzoj<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/hdu/">hdu<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/luogu/">luogu<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/categories/poj/">poj<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/new-world/">新世界<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/algorithm/">算法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/oi-nweb/">线下OI<span class="sidebar_archives-count">1</span></a>
-            </ul>
-        </li>
-        
-    
-
-    <!-- Pages  -->
-    
-        <li>
-            <a href="/tags" title="tags">
-                
-                    <i class="material-icons sidebar-material-icons">bookmark</i>
-                
-                tags
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/links" title="friends and links">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                friends and links
-            </a>
-        </li>
-        
-    
-        <li>
-            <a href="/timeline" title="timeline">
-                
-                    <i class="material-icons sidebar-material-icons">timeline</i>
-                
-                timeline
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-        <li>
-            <a href="/about_me" title="about me">
-                
-                about me
-            </a>
-        </li>
-        
-            <li class="divider"></li>
-        
-    
-
-    <!-- Article Number  -->
-    
-        <li>
-            <a href="/archives">
-                文章总数
-                <span class="sidebar-badge">22</span>
-            </a>
-        </li>
-        
-    
-</ul>
-
-
-        <!-- Sidebar Footer -->
-        <!--
-I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
-If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
-It will not impact the appearance and can give developers a lot of support :)
-
-很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
-如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
-它不会影响美观并可以给开发者很大的支持和动力。 :)
--->
-
-<!-- Sidebar Divider -->
-
-
-<!-- Theme Material -->
-
-
-<!-- Help & Support -->
-<!--
-
--->
-
-<!-- Feedback -->
-<!--
-
--->
-
-<!-- About Theme -->
-<!--
-
--->
-
-    </div>
-
-    <!-- Sidebar Image -->
-    
-
-</aside>
-
-                    
-
-                    
-                        <!-- Footer Top Button -->
-                        <div id="back-to-top" class="toTop-wrap">
-    <a href="#top" class="toTop">
-        <i class="material-icons footer_top-i">expand_less</i>
-    </a>
-</div>
-
-                    
-
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
-        <!-- Paradox Footer Left Section -->
-        <div class="mdl-mini-footer--left-section sns-list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-        <a href="https://www.google.com/" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
-                <span class="visuallyhidden">Github</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Zhihu -->
-    
-        <a href="https://zhihu.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
-                <span class="visuallyhidden">Zhihu</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Bilibili -->
-    
-        <a href="https://bilibili.com" target="_blank">
-            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
-                <span class="visuallyhidden">Bilibili</span>
-            </button><!--
-     --></a>
-    
-
-    <!-- Telegram -->
-    
-    
-    <!-- V2EX -->
-    
-</div>
-
-
-        <!--Copyright-->
-        <div id="copyright">
-            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hey, there
+        <li class="menu-item menu-item-about">
+          <a href="/about me" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/分类" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/bzoj/bzoj1034/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/bzoj/bzoj1034/" itemprop="url">bzoj1034</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T08:00:04+08:00">
+                2017-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bzoj/" itemprop="url" rel="index">
+                    <span itemprop="name">bzoj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-
-        <!-- Paradox Footer Right Section -->
-
-        <!--
-        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-        It will not impact the appearance and can give developers a lot of support :)
-
-        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-        它不会影响美观并可以给开发者很大的支持。 :)
-        -->
-
-        <div class="mdl-mini-footer--right-section">
-            <div>
-                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
-                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
-            </div>
-        </div>
-    
-</footer>
-
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
-
-
-
-    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
-
-
-
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
-
-
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-
-
-    <!-- Busuanzi -->
-    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
+      </header>
     
 
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
-
-    
-        <script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-    
-
-
-<script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
-
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
+          
+            <p>应该是改编自USACO的田忌赛马？最好的情况好处理，直接套用田忌赛马思想，排序后从小的开始比较，可以比过就加分，不行的话再看最大的能不能比过，能就加分，如果都不行那就用自己最弱的去怼掉对方最强的。对于最坏的情况很明显我们能看出就是对手最好的情况，所以我们按照刚才的策略对对手进行一波贪心，由于不管谁输谁赢或是平局，一局对两人带来的分数总和都是2，所以我们只要用n*2-对手的最优即可得到己方的最坏情况。</p>
+<p>题目链接：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1034" target="_blank" rel="external">bzoj1034</a></p>
+<p>渣代码：</p>
+<pre><code class="cpp">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int n,ans;
+int zj[100005],ds[100005];
+int solve(int zj[],int ds[])
+{
+    int zi=1,di=1;
+    int zn=n,dn=n;
+    int m=n;
+    int ans=0;
+    while(m--)
+    {
+        if(zj[zi]&gt;ds[di])
+        {
+            ans+=2;
+            zi++;
+            di++;
         }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+        else if(zj[zn]&gt;ds[dn])
+        {
+            ans+=2;
+            zn--;
+            dn--;
+        }
+        else 
+        {
+            ans+=(zj[zi]==ds[dn]);
+            zi++;
+            dn--;
+        }
+    }
+    return ans;
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;zj[i]);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%d&quot;,&amp;ds[i]);
+    sort(zj+1,zj+n+1);
+    sort(ds+1,ds+n+1);
+    printf(&quot;%d %d&quot;,solve(zj,ds),2*n-solve(ds,zj));
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj2060/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj2060/" itemprop="url">poj2060</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T21:59:21+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有n个任务，给出任务时间和起点终点，每两个点之间的时间花费为其曼哈顿距离，问若要每个任务都按时开始需要多少出租车。</p>
+<p>并不是很难，就是题意理解起来可能会有些问题，反正我当时是WA了几遍之后才发现的，a到b能连边，需满足a的开始时间+到终点花费+从a的终点到b的起点的花费&lt;=b的开始时间<br>将图建好之后就简单了，直接跑一遍匈牙利求最小路径覆盖=总点数-最大匹配即可。</p>
+<p>还get到了一个scanf的新用法：<code>scanf(&quot;%d:%d&quot;,&amp;a,&amp;b)</code>可以直接跳过去中间的’:’直接读入b，当时用的getchar还RE了几遍，用这个就AC了QAQ</p>
+<p>附上题目链接：<a href="http://poj.org/problem?id=2060" target="_blank" rel="external">poj2060</a></p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int tot;
+int had[1030],point[500*500+2],nxt[500*500+2];
+int fa[1004];
+bool vis[1003];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+bool cando(int x)
+{
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!vis[to])
+        {
+            vis[to]=1;
+            if(fa[to]==0||cando(fa[to]))
+            {
+                fa[to]=x;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int n,m,t;
+struct dou{
+    int stt,nd;
+    int s1,s2,e1,e2;
+}p[504];
+inline int ab(int x)
+{
+    if(x&lt;0)return -x;
+    return x;
+}
+inline bool line(int x,int y)
+{
+    int dis=ab(p[x].e1-p[y].s1)+ab(p[x].e2-p[y].s2);
+    if(p[x].nd+dis&lt;p[y].stt)return 1;
+    return 0;
+}
+int main()
+{
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--)
+    {
+        scanf(&quot;%d&quot;,&amp;n);
+        tot=0;
+        int day=0;
+        memset(fa,0,sizeof(fa));
+        memset(had,0,sizeof(had));
+        int a,b;
+        for(int i=1;i&lt;=n;i++)
+        {
+            scanf(&quot;%d:%d&quot;,&amp;a,&amp;b);
+            p[i].stt=a*60+b;
+            scanf(&quot;%d%d%d%d&quot;,&amp;p[i].s1,&amp;p[i].s2,&amp;p[i].e1,&amp;p[i].e2);
+            p[i].nd=p[i].stt+ab(p[i].s1-p[i].e1)+ab(p[i].s2-p[i].e2);
+            while(p[i].stt&lt;p[i-1].stt)
+            {
+                p[i].stt+=24*60;
+                p[i].nd+=24*60;
+            }
+        }
+        for(int i=1;i&lt;=n;i++)
+            for(int j=i+1;j&lt;=n;j++)
+                if(line(i,j))add(i,j+n);
+    //    for(int i=1;i&lt;=n;i++)
+    //        cout&lt;&lt;p[i].stt&lt;&lt;&#39; &#39;&lt;&lt;p[i].nd&lt;&lt;endl;
+        int ans=0;
+        for(int i=1;i&lt;=n;i++)
+        {
+            memset(vis,0,sizeof(vis));
+            if(cando(i))ans++;
+        }
+        printf(&quot;%d\n&quot;,n-ans);
+    }
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj2226/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj2226/" itemprop="url">poj2226</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T21:12:39+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。</p>
+<p><a href="http://poj.org/problem?id=2226" target="_blank" rel="external">poj2226题目链接</a></p>
+<p>贴出渣代码：</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+char c[100][100];
+int f[100][100];
+int n,m;
+int fa[1000];
+bool vis[1000];
+int tot;
+int had[1000],nxt[160004],point[160004];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+bool cando(int x)
+{
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!vis[to])
+        {
+            vis[to]=1;
+            if(fa[to]==0||cando(fa[to]))
+            {
+                fa[to]=x;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int ns,ms;
+int main()
+{
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=n;i++)
+        scanf(&quot;%s&quot;,c[i]+1);
+    int ans=0;
+    for(int i=1;i&lt;=n;i++)
+    {
+        int t=0;
+        for(int j=1;j&lt;=m;j++)
+            if(t==0&amp;&amp;c[i][j]==&#39;*&#39;)
+            {
+                ns++;
+                f[i][j]=ns;
+                t=1;
+            }
+            else
+            {
+                if(t==1&amp;&amp;c[i][j]==&#39;*&#39;)
+                    f[i][j]=ns;
+                if(t==1&amp;&amp;c[i][j]==&#39;.&#39;)
+                    t=0;
+            }
+    }
+    for(int i=1;i&lt;=m;i++)
+    {
+        int t=0;
+        for(int j=1;j&lt;=n;j++)
+            if(t==0&amp;&amp;c[j][i]==&#39;*&#39;)
+            {
+                ms++;
+                add(f[j][i],ms);
+                t=1;
+            }
+            else
+            {
+                if(t==1&amp;&amp;c[j][i]==&#39;*&#39;)
+                    add(f[j][i],ms);
+                if(t==1&amp;&amp;c[j][i]==&#39;.&#39;)
+                    t=0;
+            }
+    }
+    for(int i=1;i&lt;=ns;i++)
+    {
+        memset(vis,0,sizeof(vis));
+        if(cando(i))ans++;
+    }
+    printf(&quot;%d\n&quot;,ans);
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj3678_poj3207/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj3678_poj3207/" itemprop="url">poj3678/poj3207</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T14:38:04+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>两道入门的2-sat，只要判定是否有解即可。</p>
+<h3 id="poj3678"><a href="#poj3678" class="headerlink" title="poj3678"></a>poj3678</h3><hr>
+<p> <a href="http://poj.org/problem?id=3278" target="_blank" rel="external">题目链接</a><br> 直接读入然后按照题目要求和位运算规则建图即可，不多解释。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+using namespace std;
+int dfn[100002],low[100002];
+int tot,had[100002],nxt[4000006],point[4000006];
+int blng[100002];
+int t;
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+} 
+bool vis[1003];
+stack&lt;int&gt;s;
+void tarjan(int x)
+{
+    low[x]=dfn[x]=++t;
+    vis[x]=1;
+    s.push(x);
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])
+        {
+            low[x]=min(low[x],dfn[to]);
+        }
+    }
+    if(dfn[x]==low[x])
+    {
+        int y;
+        while(!s.empty())
+        {
+            y=s.top();
+            s.pop();
+            vis[y]=0;
+            blng[y]=x;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    int n,m;
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    for(int i=1;i&lt;=m;i++)
+    {
+        int a,b,c;
+        scanf(&quot;%d%d%d&quot;,&amp;a,&amp;b,&amp;c);
+        a++;b++;
+        char ch[10];
+        scanf(&quot;%s&quot;,ch);
+        if(!strcmp(ch,&quot;AND&quot;))
+        {
+            if(c==0)
+            {
+                add(a+n,b);
+                add(b+n,a);
+            }
+            else
+            {
+                add(a,a+n);
+                add(b,b+n);
+                add(a+n,b+n);
+                add(b+n,a+n);
+            }
+        }
+        if(!strcmp(ch,&quot;OR&quot;))
+        {
+            if(c==0)
+            {
+                add(a,b);
+                add(b,a);
+                add(a+n,a);
+                add(b+n,b);
+            }
+            else
+            {
+                add(a,b+n);
+                add(b,a+n);
+            }
+        }
+        if(!strcmp(ch,&quot;XOR&quot;))
+        {
+            if(c==0)
+            {
+                add(a,b);
+                add(b,a);
+                add(a+n,b+n);
+                add(b+n,a+n);
+            }
+            else
+            {
+                add(a,b+n);
+                add(b+n,a);
+                add(a+n,b);
+                add(b,a+n);
+            }
+        }
+    }
+    for(int i=1;i&lt;=2*n;i++)
+    {
+        if(!dfn[i])tarjan(i);
+    }
+    for(int i=1;i&lt;=n;i++)
+    {
+        if(blng[i]==blng[i+n])
+        {
+            printf(&quot;NO&quot;);
+            return 0;
+        }
+    }
+    printf(&quot;YES&quot;);
+    return 0;
+}
+</code></pre>
+<h3 id="poj3207"><a href="#poj3207" class="headerlink" title="poj3207"></a>poj3207</h3><hr>
+<p><a href="http://poj.org/problem?id=3207" target="_blank" rel="external">题目链接</a></p>
+<p>在围成一个圈的点之间连边，边不能与圈交叉，即要么全在里面要么全在外面。将所有的边读进来之后，将边的编号拆点，若两条边可能交叉就对应连边建图。之后判定即可。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int big=1000002;
+int dfn[big],low[big];
+int tot,n,m;
+int t;
+int had[big],nxt[big],point[big];
+bool vis[big];
+int blng[big];
+int l[big];
+int r[big];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+stack&lt;int&gt; sk;
+void tarjan(int x)
+{
+    dfn[x]=low[x]=++t;
+    vis[x]=1;
+    sk.push(x);
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(low[x]==dfn[x])
+    {
+        int y;
+        while(!sk.empty())
+        {
+            y=sk.top();
+            sk.pop();
+            vis[y]=0;
+            blng[y]=x;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=m;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        r[i]=r[i+m]=max(a,b)+1;
+        l[i]=l[i+m]=min(a,b)+1; 
+    }
+    for(int i=1;i&lt;m;i++)
+        for(int j=1+i;j&lt;=m;j++)
+        {
+            if(r[i]&gt;=l[j]&amp;&amp;r[i]&lt;=r[j]&amp;&amp;l[i]&lt;=l[j])
+            {
+                add(i,j+m);
+                add(j,i+m);
+                add(j+m,i);
+                add(i+m,j);
+            }
+            if(r[j]&gt;=l[i]&amp;&amp;r[i]&lt;=r[j]&amp;&amp;l[i]&lt;=l[j])
+            {
+                add(i,j+m);
+                add(j,i+m);
+            }
+        }
+    for(int i=1;i&lt;=2*m;i++)
+    {
+        if(!dfn[i])tarjan(i);
+    }
+    bool f=1;
+    for(int i=1;i&lt;=m;i++)
+    {
+        if(blng[i]==blng[i+m])
+        {
+            f=0;
+            break;
+        }
+    }
+    if(f)cout&lt;&lt;&quot;panda is telling the truth...&quot;;
+    else cout&lt;&lt;&quot;the evil panda is lying again&quot;;
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj2749/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj2749/" itemprop="url">poj2749</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T14:10:04+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>poj六道2-sat中的最后一道。事实上也算比较基础的，不用输出方案，只是建图的时候要多注意一些。</p>
+<p><a href="http://poj.org/problem?id=2749" target="_blank" rel="external">题目链接</a></p>
+<p>大意是给你两个源点，有n个点要向这两个点中的一个连边，边长为他们的曼哈顿距离，其中有的点必须连同一个源点，有的点必须连不同的源点。两个源点之间有边。给出两个源点和这n个点的坐标，要求使这n个点中任意两点之间的边长（点到源点再到点的边长）尽可能的小。</p>
+<p>由于“最小化最长的连边”具有单调性，我们可以二分答案。每次二分时重新建图，将边长大于答案的边所连的两个点连（2-sat所成图中的）边。可行的话再向下二分，否则向上二分。</p>
+<p>自己调了一个下午的代码老是不对，连样例都过不去。后来参考网上的题解还是不行，最后还是同机房的dalao帮忙找出了错，不止一个还一个比一个智障。。。。</p>
+<p>放上渣代码(捂脸)</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;stack&gt;
+#include&lt;algorithm&gt;
+#include&lt;cmath&gt;
+using namespace std;
+int had[1003],nxt[500000],point[500000];
+int tot;
+int sdis;
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+int t,timel;
+int dfn[1002],low[1004];
+stack&lt;int&gt;ss;
+bool vis[1003];
+int dis1[5090],dis2[5090];
+int blng[1002];
+int hate[5009][2];
+int like[5009][2];
+void tarjan(int u) 
+{
+    int v,i;
+    dfn[u]=low[u]=++t;
+    vis[u]=1;
+    ss.push(u);
+    for(i=had[u];i;i=nxt[i]) 
+    {
+        v=point[i];
+        if(!dfn[v]) 
+        {
+            tarjan(v);
+            low[u]=min(low[u],low[v]);
+        } 
+        else if(vis[v]) 
+            low[u]=min(low[u],dfn[v]);
+    }
+    if(dfn[u] == low[u]) 
+    {
+        timel++;
+        do 
+        {
+            v=ss.top();
+            ss.pop();
+            blng[v]=timel;
+            vis[v]=false;
+        } while(v!=u);
+    }
+}
+int n,lk,ht;
+int big;
+void build(int lim) 
+{
+    int i,j,x,y;
+    for(i=0;i&lt;ht;i++) 
+    {
+        x=hate[i][0]*2; 
+        y=hate[i][1]*2;
+        add(x,y+1); 
+        add(y,x+1);
+        add(y+1,x); 
+        add(x+1,y);
+    }
+    for(i=0;i&lt;lk;i++) 
+    {
+        x=like[i][0]*2;
+        y=like[i][1]*2;
+        add(x,y); 
+        add(x+1,y+1);
+        add(y,x); 
+        add(y+1,x+1);
+    }
+    for(i=0;i&lt;n;i++) 
+        for(j=i+1;j&lt;n;j++) 
+        {
+            x=i&lt;&lt;1;
+            y=j&lt;&lt;1;
+            if(dis1[i]+dis1[j]&gt;lim)     
+            {
+                add(x,y+1);
+                add(y,x+1);
+            }
+            if(dis2[i]+dis2[j]&gt;lim)    
+            {
+                add(x+1,y);
+                add(y+1,x);
+            }
+            if(dis1[i]+dis2[j]+sdis&gt;lim)    
+            {
+                add(x,y);
+                add(y+1,x+1);
+            }
+            if(dis2[i]+dis1[j]+sdis&gt;lim) 
+            {    
+                add(x+1,y+1);
+                add(y,x);
+            }
+        }
+}
+bool cando()
+{
+    for(int i=0;i&lt;2*n;i+=2)
+        if(blng[i]==blng[i+1])
+            return 0;
+    return 1;
+}
+bool solve(int lim)
+{
+    memset(blng,0,sizeof(blng));
+    memset(dfn,0,sizeof(dfn));
+    memset(low,0,sizeof(low));
+    tot=0;
+    timel=0;
+    t=0;
+    memset(had,0,sizeof(had));
+    memset(point,0,sizeof(point));
+    memset(nxt,0,sizeof(nxt));
+    build(lim);
+    for(int i=0;i&lt;2*n;i++)
+        if(!dfn[i])tarjan(i);
+    for(int i=0;i&lt;2*n;i+=2)
+        if(blng[i]==blng[i+1])
+            return 0;
+    return 1;
+}
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;ht&gt;&gt;lk;
+    int x1,x2,y1,y2;
+    cin&gt;&gt;x1&gt;&gt;y1&gt;&gt;x2&gt;&gt;y2;
+    sdis=abs(x1-x2)+abs(y1-y2);
+    for(int i=0;i&lt;n;i++) 
+    {
+        int x,y;
+        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+        dis1[i]=abs(x-x1)+abs(y-y1);
+        dis2[i]=abs(x-x2)+abs(y-y2);
+        big=max(big,max(dis1[i],dis2[i]));
+    }
+    for(int i=0;i&lt;ht;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        a--;
+        b--;
+        hate[i][0]=a;
+        hate[i][1]=b;
+    }
+    for(int i=0;i&lt;lk;i++)
+    {
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        a--;
+        b--;
+        like[i][0]=a;
+        like[i][1]=b;
+    }
+    int l=0, r=big*3,mid,ans=-1;
+    while(l&lt;=r) 
+    {
+        mid=(l+r)&gt;&gt;1;
+        if(solve(mid))    
+        {
+            ans=mid;
+            r=mid-1;
+        }
+        else l=mid+1;
+    }
+    cout&lt;&lt;ans;
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj2723/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj2723/" itemprop="url">poj2723</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T13:51:55+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一道很基础的2-sat，题目链接戳<a href="http://poj.org/problem?id=2723" target="_blank" rel="external">这里</a>。</p>
+<p>大意是，你有n对钥匙，每对钥匙中只能选一个。你要开m个门，每个门可以用两把给定钥匙中的任意一把打开，问你最多能开到第几道门。</p>
+<p>为了方便处理，我们先做个映射，把第i对钥匙的编号转换为<br><code>i*2</code>和<code>i*2+1</code>。然后将门当做限制连边，每读入一个就连一条边，判定是否可行，直到不可行为止。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;stack&gt;
+using namespace std;
+int mp[10000]; 
+int tot;
+int had[5050],nxt[5000],point[5005];
+int t;
+int dfn[20000],low[20000];
+int blng[20000];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+stack&lt;int&gt; ss;
+bool vis[20000];
+void tarjan(int x)
+{
+    t++;
+    dfn[x]=low[x]=t;
+    vis[x]=1;
+    ss.push(x);
+    for(int i=had[x];i!=-1;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(low[x]==dfn[x])
+    {
+        int y=ss.top();
+        while(!ss.empty())
+        {
+            y=ss.top();
+            ss.pop();
+            blng[y]=x;
+            vis[y]=0;
+            if(y==x)break;
+        }
+    }
+}
+int main()
+{
+    int n,m;
+    while(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n)
+    {
+        tot=0;
+        memset(had,-1,sizeof(had));
+        memset(nxt,-1,sizeof(nxt));
+        memset(point,-1,sizeof(point));
+        for(int i=0;i&lt;n;i++)
+        {
+            int a,b;
+            cin&gt;&gt;a&gt;&gt;b;
+            mp[a]=2*i;
+            mp[b]=2*i+1; 
+        }
+        bool f=0;
+        for(int i=1;i&lt;=m;i++)
+        {
+            int a,b;
+            cin&gt;&gt;a&gt;&gt;b;
+            if(f)continue;
+            add(mp[a],mp[b]^1);
+            add(mp[b],mp[a]^1);
+            t=0;
+            memset(dfn,0,sizeof(dfn));
+            memset(low,0,sizeof(low));
+            memset(vis,0,sizeof(vis));
+            memset(blng,0,sizeof(blng));
+            for(int j=0;j&lt;2*n;j++)
+                if(!dfn[j])tarjan(j);
+            for(int j=0;j&lt;2*n;j+=2)
+                if(blng[j]==blng[j+1])
+                {
+                    cout&lt;&lt;i-1&lt;&lt;endl;
+                    f=1;
+                    break;
+                }
+        }
+        if(f==0)cout&lt;&lt;m&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/bzoj/bzoj1013/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/bzoj/bzoj1013/" itemprop="url">bzoj1013</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T09:11:25+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bzoj/" itemprop="url" rel="index">
+                    <span itemprop="name">bzoj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本来是打算这两天一口气刷完poj的6到2-sat的，但昨天的模拟赛被一道题高斯消元直接虐了3个半小时没调出来，后来发现自己的高斯消元的板子就是错的= =。。</p>
+<p>今天决定更新一下板子，就参照着<a href="http://hzwer.com/1981.html" target="_blank" rel="external">黄学长的博客</a>打了一下这道题WA了几遍总算AC了，没什么大问题。</p>
+<p>照例丢<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1013" target="_blank" rel="external">链接</a>.</p>
+<p>这道题题目大意是说给你一个n维空间球上的n+1个点，让你求球心坐标。只要处理一下输入就变成了一道高斯消元的模板题。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cmath&gt;
+using namespace std;
+double gs[20][20];
+double f[20];
+int n;
+int main()
+{
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++)
+        cin&gt;&gt;f[i];
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=n;j++)
+        {
+            double a;
+            cin&gt;&gt;a;
+            gs[i][j]=2*a-2*f[j];
+            gs[i][n+1]+=a*a;
+            gs[i][n+1]-=f[j]*f[j];
+        }
+    //对于读入的处理：
+    //我们通过n个坐标列距离公式，拆开再合并可以列出n个多项式
+    //再通过剩下的那个坐标构建等式，移项消元构建方程。 
+    for(int i=1;i&lt;=n;i++)
+    {
+        int big=0,mn;
+        for(int j=1;j&lt;=n;j++)
+            if(fabs(gs[i][j])&gt;big&amp;&amp;gs[i][j]!=0)
+            {
+                big=gs[i][j];
+                mn=j;
+            }
+        if(mn!=i)
+            for(int j=1;j&lt;=n+1;j++)
+                swap(gs[i][j],gs[mn][j]);
+        for(int j=1;j&lt;=n;j++)
+        {
+            if(j==i)continue;
+            double a=gs[j][i]/gs[i][i];
+            for(int k=1;k&lt;=n+1;k++)
+                gs[j][k]-=gs[i][k]*a;
+        }
+    }
+    for(int i=1;i&lt;n;i++)
+        printf(&quot;%.3lf &quot;,gs[i][n+1]/gs[i][i]);
+    printf(&quot;%.3lf&quot;,gs[n][n+1]/gs[n][n]);
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj3648/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/poj/poj3648/" itemprop="url">poj3648</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T16:47:39+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/poj/" itemprop="url" rel="index">
+                    <span itemprop="name">poj</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一天之内完成两道2-sat，新方法就是霸气~</p>
+<p>这道题的题目大意是一对新人要举行婚礼，邀请了n对夫妇在宴席上有这么些奇奇怪怪的风俗：一对夫妇不能做同一侧否则会有厄运；除此之外还有一些有暧昧关系的人，这些人不能同时被新娘看到，否则也会有厄运。问是否有解，若有的话输出任意一组。</p>
+<p>这是<a href="http://poj.org/problem?id=3648" target="_blank" rel="external">题目链接</a>。</p>
+<p>以坐在新郎一侧的人是谁为对应点建图，记录新郎一侧的解，输出的时候反过来。不直接记录新娘一侧的点是因为据discuss说新娘也可能有暧昧关系。。。。。。然后还有一点就是要连一条新娘到新郎的边，表示新郎一定要选（因为是求新郎一侧的解）。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;stack&gt; 
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int tot;
+int had[200],nxt[40004],point[40004];
+inline void add(int x,int y)
+{
+    tot++;
+    point[tot]=y;
+    nxt[tot]=had[x];
+    had[x]=tot;
+}
+int t,timel;
+int dfn[200],low[200],blng[200];
+bool vis[200];
+stack&lt;int&gt;ss;
+void tarjan(int x)
+{
+    dfn[x]=low[x]=t++;
+    ss.push(x);
+    vis[x]=1;
+    for(int i=had[x];i;i=nxt[i])
+    {
+        int to=point[i];
+        if(!dfn[to])
+        {
+            tarjan(to);
+            low[x]=min(low[x],low[to]);
+        }
+        else
+        if(vis[to])low[x]=min(low[x],dfn[to]);
+    }
+    if(dfn[x]==low[x])
+    {
+        timel++;
+        while(!ss.empty())
+        {
+            int y=ss.top();
+            blng[y]=timel;
+            vis[y]=0;
+            ss.pop();
+            if(y==x)break;
+        }
+    }
+}
+int n,m;
+int main()
+{
+    while(cin&gt;&gt;n&gt;&gt;m&amp;&amp;n)
+    {    
+        tot=0;
+        t=0;
+        timel=0;
+        bool f=0;
+        memset(dfn,0,sizeof(dfn));
+        memset(low,0,sizeof(low));
+        memset(had,0,sizeof(had));
+        memset(nxt,0,sizeof(nxt));
+        memset(blng,0,sizeof(blng));    
+        memset(point,0,sizeof(point));
+        for(int i=0;i&lt;m;i++)
+        {
+            int w,h;
+            char w1,h1;
+            cin&gt;&gt;w&gt;&gt;w1;
+            cin&gt;&gt;h&gt;&gt;h1;
+            w&lt;&lt;=1;
+            h&lt;&lt;=1;
+            if(w1==&#39;h&#39;)w++;
+            if(h1==&#39;h&#39;)h++;
+            add(w,h^1);
+            add(h,w^1);
+        }
+        add(0,1); 
+        for(int i=0;i&lt;2*n;i++)
+            if(!dfn[i])tarjan(i);
+        for(int i=0;i&lt;2*n;i+=2)
+            if(blng[i]==blng[i+1])
+            {
+                f=1;
+                cout&lt;&lt;&quot;bad luck\n&quot;;
+                break;
+            }
+        if(f)continue;
+        for(int i=2;i&lt;2*n;i+=2)
+        {
+            cout&lt;&lt;(i&gt;&gt;1);
+            if(blng[i]&lt;blng[i+1])cout&lt;&lt;&quot;h &quot;;
+            else cout&lt;&lt;&quot;w &quot;;
+        }
+        cout&lt;&lt;endl;
+    }
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/oi-nweb/afanruv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/oi-nweb/afanruv/" itemprop="url">一个有点意思的证明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T13:52:46+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oi-nweb/" itemprop="url" rel="index">
+                    <span itemprop="name">线下OI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨天二师兄突然来这边机房，然后又突然就没头没脑的提出了这个问题：</p>
+<blockquote>
+<p>将一个完全图的所有边任意指定方向（所谓竞赛图），如何证明这张图一定存在一条哈密顿路径？</p>
+</blockquote>
+<p>经过一番思考和操作，我们大致把它给搞出来了，现记录如下。</p>
+<p>首先证明，一个竞赛图最多存在一个入度为0的点：<br>若存在两个以上的点入度为零，那么它们之间的边无法指明方向，证毕。</p>
+<p>然后我们要明确一点，即一个完全图删掉一个点及其所有连边之后还是一个完全图。那么我们一直删掉那个入度为零的点进行拓扑排序，递归证明可得每次删掉一个点之后最多还是只会有一个点入度为零，且这个点一定是上一个被删点的儿子节点（姑且这么叫）。一直删点直到没有点为止，我们一定能够求出一条哈密顿路。</p>
+<p>那么如果途中不存在入度为零的点怎么办呢？</p>
+<p>我们可以随意指定一个点，并且把指向它的边都删掉，这样就有了一个入度为零的点了（手动滑稽）。由于我们删掉的都是它的入边，因此不会把其他的点变为入度为零的点。<br>然后继续递归求解。证毕。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/hdu/HDU4405/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sounix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey, there">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hdu/HDU4405/" itemprop="url">又是一道坑题HDU4405</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T09:45:28+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hdu/" itemprop="url" rel="index">
+                    <span itemprop="name">hdu</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近打算刷几道概率DP，然而就这么状况频出。。。</p>
+<p>丢个链接：</p>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4405" target="_blank" rel="external">HDU4405</a></p>
+<p>这道题的大意是说Hzz玩儿飞行棋，起点是0，终点是n，并且路径上还有m条航线(x,y)可以不用掷骰子直接从x到y。问掷骰子次数的期望。</p>
+<p>明明是一道裸题，结果又WA了好几遍。看讨论才发现若x点存在航线的话直接飞，不考虑掷骰子的事儿。然而原文中说的是</p>
+<blockquote>
+<p>The i-th flight line can help Hzz fly from grid Xi to Yi (0&lt;Xi&lt;Yi&lt;=N) without throwing the dice.</p>
+</blockquote>
+<p>我也不知道这个“help”咋就成强制的了，因为可能会存在这种情况：</p>
+<pre><code>12 7
+1 8
+2 12
+3 12
+4 12
+5 12
+6 12
+7 12
+0 0
+</code></pre><p>这样的数据，当第一次掷出1时很明显不选走航线是更优的。。。不是很明白飞行棋的规矩，但是按照题目里的说明应该是可以选择飞不飞吧。。。然而这么打就错了，强制飞就对了。。。辣鸡HDU。。。</p>
+<pre><code class="cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int n,m;
+double f[100005];
+int to[100005];
+int main()
+{
+    while(scanf(&quot;%d%d&quot;,&amp;n,&amp;m)!=EOF&amp;&amp;n)
+    {
+        memset(f,0,sizeof(f));
+        memset(to,0,sizeof(to));
+        for(int i=1;i&lt;=m;i++)
+        {
+            int a,b;
+            scanf(&quot;%d%d&quot;,&amp;a,&amp;b);
+            to[a]=b;
+        }
+        for(int i=n-1;i&gt;=0;i--)
+        {
+            for(int j=1;j&lt;=6;j++)
+            {
+                f[i]+=f[i+j];
+                if(i+j==n)break; 
+            }
+            f[i]=f[i]/6.0+1;
+            if(to[i])f[i]=min(f[i],f[to[i]]);
+        }
+        printf(&quot;%.4lf\n&quot;,f[0]);
+    }
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sounix</p>
+              <p class="site-description motion-element" itemprop="description">风虽大，都绕过我灵魂。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sounix</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
-                </main>
-            </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-        </body>
-    
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
