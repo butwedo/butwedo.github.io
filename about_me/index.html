@@ -500,20 +500,6 @@
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-
-  
-    <span class="site-pv">
-      访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
 
 
@@ -663,7 +649,7 @@
 
    <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = '';
+    var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
@@ -677,6 +663,8 @@
         avatar:'identicon',
         guest_info:guest,
         pageSize:'15' || 10,
+		})
+	</script>
 
   
 
