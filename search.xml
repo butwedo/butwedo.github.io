@@ -153,8 +153,6 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 2-SAT </tag>
             
             <tag> 总结 </tag>
@@ -181,11 +179,11 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> POI </tag>
             
             <tag> 链表 </tag>
+            
+            <tag> bfs </tag>
             
         </tags>
         
@@ -240,8 +238,6 @@
         
         
         <tags>
-            
-            <tag> DP </tag>
             
             <tag> POI </tag>
             
@@ -300,6 +296,8 @@
             
             <tag> 贪心 </tag>
             
+            <tag> 水题 </tag>
+            
             <tag> POI </tag>
             
         </tags>
@@ -350,6 +348,8 @@
         
         <tags>
             
+            <tag> 水题 </tag>
+            
             <tag> POI </tag>
             
             <tag> 并查集 </tag>
@@ -378,8 +378,6 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 2-SAT </tag>
             
         </tags>
@@ -405,8 +403,6 @@
         
         
         <tags>
-            
-            <tag> 图论 </tag>
             
             <tag> 最小生成树 </tag>
             
@@ -461,8 +457,6 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 二分图 </tag>
             
         </tags>
@@ -486,8 +480,6 @@
         
         
         <tags>
-            
-            <tag> 图论 </tag>
             
             <tag> 二分图 </tag>
             
@@ -517,8 +509,6 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 2-SAT </tag>
             
         </tags>
@@ -546,8 +536,6 @@
         
         <tags>
             
-            <tag> 图论 </tag>
-            
             <tag> 2-SAT </tag>
             
         </tags>
@@ -571,8 +559,6 @@
         
         
         <tags>
-            
-            <tag> 图论 </tag>
             
             <tag> 2-SAT </tag>
             
@@ -599,8 +585,6 @@
         
         <tags>
             
-            <tag> 数学 </tag>
-            
             <tag> 高斯消元 </tag>
             
         </tags>
@@ -625,8 +609,6 @@
         
         
         <tags>
-            
-            <tag> 图论 </tag>
             
             <tag> 2-SAT </tag>
             
@@ -658,7 +640,7 @@
         
         <tags>
             
-            <tag> 图论 </tag>
+            <tag> 竞赛图 </tag>
             
             <tag> 证明 </tag>
             
@@ -694,7 +676,7 @@
             
             <tag> DP </tag>
             
-            <tag> 期望DP </tag>
+            <tag> 期望 </tag>
             
         </tags>
         
@@ -720,7 +702,7 @@
             
             <tag> DP </tag>
             
-            <tag> 期望DP </tag>
+            <tag> 期望 </tag>
             
         </tags>
         
