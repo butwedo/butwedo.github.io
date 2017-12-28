@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="图论,二分图," />
+  <meta name="keywords" content="网络流,模板," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。">
-<meta name="keywords" content="图论,二分图">
+<meta name="description" content="​    一道最小费用最大流的模板题，对于最小费用最大流，比较简单的做法是不断地在残量网络上跑SPFA，每次找到从源点到汇点花费最小的路径，并且跑完这条路径上的流量，直到从源点无法到达汇点为止。">
+<meta name="keywords" content="网络流,模板">
 <meta property="og:type" content="article">
-<meta property="og:title" content="poj2226">
-<meta property="og:url" content="https://butwedo.space/poj/poj2226/index.html">
+<meta property="og:title" content="餐巾计划问题(最小费用最大流)">
+<meta property="og:url" content="https://butwedo.space/luogu/p1251/index.html">
 <meta property="og:site_name" content="Hey, there">
-<meta property="og:description" content="一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。">
+<meta property="og:description" content="​    一道最小费用最大流的模板题，对于最小费用最大流，比较简单的做法是不断地在残量网络上跑SPFA，每次找到从源点到汇点花费最小的路径，并且跑完这条路径上的流量，直到从源点无法到达汇点为止。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-26T09:14:26.681Z">
+<meta property="og:updated_time" content="2017-12-28T02:56:32.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="poj2226">
-<meta name="twitter:description" content="一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。">
+<meta name="twitter:title" content="餐巾计划问题(最小费用最大流)">
+<meta name="twitter:description" content="​    一道最小费用最大流的模板题，对于最小费用最大流，比较简单的做法是不断地在残量网络上跑SPFA，每次找到从源点到汇点花费最小的路径，并且跑完这条路径上的流量，直到从源点无法到达汇点为止。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://butwedo.space/poj/poj2226/"/>
+  <link rel="canonical" href="https://butwedo.space/luogu/p1251/"/>
 
 
 
 
 
-  <title>poj2226 | Hey, there</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>餐巾计划问题(最小费用最大流) | Hey, there</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://butwedo.space/poj/poj2226/">
+    <link itemprop="mainEntityOfPage" href="https://butwedo.space/luogu/p1251/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sounix">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">poj2226</h1>
+          <h1 class="post-title" itemprop="name headline">餐巾计划问题(最小费用最大流)</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T21:12:39+08:00">
-                2017-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:16:19+08:00">
+                2017-12-28
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/poj/" itemprop="url" rel="index">
-                    <span itemprop="name">poj</span>
+                  <a href="/categories/luogu/" itemprop="url" rel="index">
+                    <span itemprop="name">luogu</span>
                   </a>
                 </span>
 
@@ -386,11 +386,22 @@
       
 
       
-        <p>一道很经典的题，因为一块儿泥地可以被横着的木板覆盖也可以被竖着的木板覆盖，所以对于每个联通块我们横纵坐标分别标号，然后连接对应的横纵标号建图，求一遍最小覆盖即可。</p>
+        <p>​    一道最小费用最大流的模板题，对于最小费用最大流，比较简单的做法是不断地在残量网络上跑SPFA，每次找到从源点到汇点花费最小的路径，并且跑完这条路径上的流量，直到从源点无法到达汇点为止。</p>
 <a id="more"></a>
-<p><a href="http://poj.org/problem?id=2226" target="_blank" rel="external">poj2226题目链接</a></p>
-<p>贴出渣代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> c[<span class="number">100</span>][<span class="number">100</span>];</div><div class="line"><span class="keyword">int</span> f[<span class="number">100</span>][<span class="number">100</span>];</div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"><span class="keyword">int</span> fa[<span class="number">1000</span>];</div><div class="line"><span class="keyword">bool</span> vis[<span class="number">1000</span>];</div><div class="line"><span class="keyword">int</span> tot;</div><div class="line"><span class="keyword">int</span> had[<span class="number">1000</span>],nxt[<span class="number">160004</span>],point[<span class="number">160004</span>];</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    tot++;</div><div class="line">    point[tot]=y;</div><div class="line">    nxt[tot]=had[x];</div><div class="line">    had[x]=tot;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cando</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=had[x];i;i=nxt[i])</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> to=point[i];</div><div class="line">        <span class="keyword">if</span>(!vis[to])</div><div class="line">        &#123;</div><div class="line">            vis[to]=<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span>(fa[to]==<span class="number">0</span>||cando(fa[to]))</div><div class="line">            &#123;</div><div class="line">                fa[to]=x;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> ns,ms;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,c[i]+<span class="number">1</span>);</div><div class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</div><div class="line">            <span class="keyword">if</span>(t==<span class="number">0</span>&amp;&amp;c[i][j]==<span class="string">'*'</span>)</div><div class="line">            &#123;</div><div class="line">                ns++;</div><div class="line">                f[i][j]=ns;</div><div class="line">                t=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(t==<span class="number">1</span>&amp;&amp;c[i][j]==<span class="string">'*'</span>)</div><div class="line">                    f[i][j]=ns;</div><div class="line">                <span class="keyword">if</span>(t==<span class="number">1</span>&amp;&amp;c[i][j]==<span class="string">'.'</span>)</div><div class="line">                    t=<span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">            <span class="keyword">if</span>(t==<span class="number">0</span>&amp;&amp;c[j][i]==<span class="string">'*'</span>)</div><div class="line">            &#123;</div><div class="line">                ms++;</div><div class="line">                add(f[j][i],ms);</div><div class="line">                t=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(t==<span class="number">1</span>&amp;&amp;c[j][i]==<span class="string">'*'</span>)</div><div class="line">                    add(f[j][i],ms);</div><div class="line">                <span class="keyword">if</span>(t==<span class="number">1</span>&amp;&amp;c[j][i]==<span class="string">'.'</span>)</div><div class="line">                    t=<span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=ns;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</div><div class="line">        <span class="keyword">if</span>(cando(i))ans++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​    这道题的建图比较有意思。我们设第i天需要nd[i]块餐巾，购买一块餐巾的费用是newp，慢洗需要sloc天，花费是slop；快洗需要fstc天，花费是fstp。首先将n天拆点，设xi为第i天开始时拥有的餐巾数量，yi为第i天结束后用过的餐巾数量。则我们从源点向每个xi连一条费用为0，流量为nd[i]的边来限制，同时从每个yi都向汇点连一条流量为nd[i]，费用为0的边进行限制。</p>
+<p>​    接下来对于每条规则进行限制：</p>
+<ol>
+<li>来源为新购买的餐巾：从源点向每个yi连一条流量为无穷，花费为newp的边；</li>
+<li>用过的餐巾送到慢洗部：从xi向y(i+sloc)连一条流量为无穷，花费为slop的边；</li>
+<li>用过的餐巾送到快洗部：从xi向y(i+fstc)连一条流量为无穷，花费为fstp的边；</li>
+<li>用过的餐巾留到下一天再处理：从xi向x(i+1)连一条流量为无穷，花费为0的边。</li>
+</ol>
+<p>​    这样建图之后，能够保证最大流为<script type="math/tex">\sum nd[i]</script>,最小花费即为最大流的最小费用。</p>
+<blockquote>
+<p><em>对于反边，要注意流量为0，花费为相反数。</em></p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> had[<span class="number">500005</span>],nxt[<span class="number">400009</span>],point[<span class="number">400009</span>],val[<span class="number">4000009</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> dis[<span class="number">500005</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> flow[<span class="number">4000009</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> tot=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> y,<span class="keyword">long</span> <span class="keyword">long</span> v,<span class="keyword">long</span> <span class="keyword">long</span> f)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    tot++;</div><div class="line">    nxt[tot]=had[x];</div><div class="line">    point[tot]=y;</div><div class="line">    had[x]=tot;</div><div class="line">    val[tot]=v;</div><div class="line">    flow[tot]=f;</div><div class="line">    tot++;</div><div class="line">    nxt[tot]=had[y];</div><div class="line">    point[tot]=x;</div><div class="line">    had[y]=tot;</div><div class="line">    val[tot]=-v;</div><div class="line">    flow[tot]=<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> s,T;</div><div class="line"><span class="keyword">bool</span> vis[<span class="number">500005</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> up[<span class="number">500005</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> fw[<span class="number">500005</span>];</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">spfa</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; q;</div><div class="line">    <span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dis));</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> big=dis[<span class="number">0</span>];</div><div class="line">    dis[s]=<span class="number">0</span>;</div><div class="line">    q.push(s);</div><div class="line">    <span class="built_in">memset</span>(up,<span class="number">0</span>,<span class="keyword">sizeof</span>(up));</div><div class="line">    <span class="keyword">while</span>(!q.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> t=q.front();</div><div class="line">        q.pop();</div><div class="line">        vis[t]=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=had[t];i;i=nxt[i])</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">long</span> <span class="keyword">long</span> to=point[i];</div><div class="line">            <span class="keyword">if</span>(flow[i]==<span class="number">0</span>)<span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span>(dis[to]&gt;dis[t]+val[i])</div><div class="line">            &#123;</div><div class="line">                dis[to]=dis[t]+val[i];</div><div class="line">                up[to]=t;</div><div class="line">                fw[to]=i;</div><div class="line">                <span class="keyword">if</span>(vis[to]==<span class="number">0</span>)</div><div class="line">                &#123;</div><div class="line">                    vis[to]=<span class="number">1</span>;</div><div class="line">                    q.push(to);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dis[T]==big)<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">fl</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> cost=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(spfa())</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> mf=<span class="number">1e9</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=T;i!=s;i=up[i])</div><div class="line">            mf=min(mf,flow[fw[i]]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=T;i!=s;i=up[i])</div><div class="line">        &#123;</div><div class="line">            flow[fw[i]]-=mf;</div><div class="line">            flow[fw[i]^<span class="number">1</span>]+=mf;</div><div class="line">        &#125;</div><div class="line">        cost+=dis[T]*mf;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cost;</div><div class="line">&#125;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> n;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> nd[<span class="number">20004</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> newp,fstp,slop;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> fstc,sloc;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> big=<span class="number">1e9</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;nd[i]);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld%lld%lld"</span>,&amp;newp,&amp;fstc,&amp;fstp,&amp;sloc,&amp;slop);</div><div class="line">    s=<span class="number">0</span>;</div><div class="line">    T=<span class="number">2</span>*n+<span class="number">10</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">long</span> <span class="keyword">long</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">    &#123;</div><div class="line">        add(s,i,<span class="number">0</span>,nd[i]);</div><div class="line">        add(i+n,T,<span class="number">0</span>,nd[i]);</div><div class="line">        add(s,i+n,newp,big);</div><div class="line">        <span class="keyword">if</span>(i+sloc&lt;=n)</div><div class="line">        add(i,(i+sloc)+n,slop,big);</div><div class="line">        <span class="keyword">if</span>(i+fstc&lt;=n)</div><div class="line">        add(i,(i+fstc)+n,fstp,big);</div><div class="line">        <span class="keyword">if</span>(i+<span class="number">1</span>&lt;=n)</div><div class="line">        add(i,i+<span class="number">1</span>,<span class="number">0</span>,big);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,fl());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -407,9 +418,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/图论/" rel="tag"># 图论</a>
+            <a href="/tags/网络流/" rel="tag"># 网络流</a>
           
-            <a href="/tags/二分图/" rel="tag"># 二分图</a>
+            <a href="/tags/模板/" rel="tag"># 模板</a>
           
         </div>
       
@@ -422,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/poj/poj3678_poj3207/" rel="next" title="poj3678/poj3207">
-                <i class="fa fa-chevron-left"></i> poj3678/poj3207
+              <a href="/oi-nweb/alet/" rel="next" title="noip前注意事项总结">
+                <i class="fa fa-chevron-left"></i> noip前注意事项总结
               </a>
             
           </div>
@@ -431,10 +442,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/poj/poj2060/" rel="prev" title="poj2060">
-                poj2060 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -591,6 +607,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
